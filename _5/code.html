@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+
+<html lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Моя Кроха - Детский магазин</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-variant": "#e9e1dc",
+                      "on-primary": "#ffffff",
+                      "surface-dim": "#e1d8d4",
+                      "outline-variant": "#d1c4bc",
+                      "inverse-surface": "#34302c",
+                      "inverse-primary": "#d7c3b4",
+                      "sage-accent": "#A3AC9A",
+                      "on-primary-fixed": "#241910",
+                      "warm-bg": "#F9F7F5",
+                      "surface-container": "#f5ece7",
+                      "secondary-container": "#f4dfcb",
+                      "on-surface-variant": "#4e453f",
+                      "on-secondary-fixed": "#241a0e",
+                      "on-primary-fixed-variant": "#524439",
+                      "surface-container-high": "#efe6e2",
+                      "inverse-on-surface": "#f8efea",
+                      "surface-tint": "#6b5b4f",
+                      "secondary-fixed-dim": "#d7c3b0",
+                      "error-container": "#ffdad6",
+                      "surface-bright": "#fff8f5",
+                      "tertiary-container": "#79746d",
+                      "surface-container-low": "#fbf2ed",
+                      "on-tertiary-fixed": "#1e1b17",
+                      "on-error": "#ffffff",
+                      "tertiary": "#5f5b55",
+                      "on-tertiary-fixed-variant": "#4a4641",
+                      "primary-fixed-dim": "#d7c3b4",
+                      "primary": "#68594d",
+                      "on-primary-container": "#fffbff",
+                      "background": "#fff8f5",
+                      "secondary": "#6b5c4c",
+                      "surface-container-lowest": "#ffffff",
+                      "tertiary-fixed-dim": "#ccc5be",
+                      "primary-fixed": "#f4dfcf",
+                      "primary-container": "#827165",
+                      "on-error-container": "#93000a",
+                      "tertiary-fixed": "#e8e1d9",
+                      "surface-container-highest": "#e9e1dc",
+                      "on-surface": "#1e1b18",
+                      "outline": "#7f756e",
+                      "error": "#ba1a1a",
+                      "on-secondary-fixed-variant": "#524436",
+                      "sale-blush": "#D4A5A5",
+                      "on-background": "#1e1b18",
+                      "on-tertiary": "#ffffff",
+                      "secondary-fixed": "#f4dfcb",
+                      "on-secondary": "#ffffff",
+                      "surface": "#fff8f5",
+                      "on-tertiary-container": "#fffbff",
+                      "on-secondary-container": "#716252"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "section-gap": "80px",
+                      "container-max": "1280px",
+                      "base": "8px",
+                      "margin-mobile": "16px",
+                      "margin-desktop": "64px"
+              },
+              "fontFamily": {
+                      "display-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-md": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-lg-mobile": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "body-sm": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "body-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "label-upper": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "body-md": [
+                              "Plus Jakarta Sans"
+                      ]
+              },
+              "fontSize": {
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "34px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-upper": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.08em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+        }
+        
+        /* Hide scrollbar for horizontal scrolling containers */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md bg-background min-h-screen flex flex-col antialiased">
+<!-- TopNavBar -->
+<header class="bg-surface/80 dark:bg-inverse-surface/80 backdrop-blur-md docked full-width top-0 sticky z-50 border-b border-outline-variant/30 dark:border-outline/20 shadow-sm opacity-95">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto hidden md:flex">
+<!-- Logo -->
+<a class="font-headline-md text-headline-md font-semibold text-primary dark:text-inverse-primary tracking-tight" href="#">
+                Моя Кроха
+            </a>
+<!-- Search Bar (Left-aligned as per JSON, but centered in available space) -->
+<div class="flex-1 max-w-md mx-gutter">
+<div class="relative w-full h-10 bg-warm-bg rounded-lg border border-outline-variant/30 flex items-center focus-within:border-secondary transition-colors">
+<span class="material-symbols-outlined text-outline ml-3">search</span>
+<input class="w-full bg-transparent border-none focus:ring-0 text-body-sm text-on-surface ml-2 outline-none" placeholder="Поиск товаров..." type="text"/>
+</div>
+</div>
+<!-- Navigation Links -->
+<nav class="flex items-center gap-6 mr-gutter">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Коляски</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Автокресла</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Мебель</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Текстиль</a>
+</nav>
+<!-- Trailing Icons -->
+<div class="flex items-center gap-4 text-primary dark:text-inverse-primary">
+<button aria-label="favorite" class="hover:text-primary dark:hover:text-inverse-primary transition-colors duration-300 transform active:scale-95 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">favorite</span>
+</button>
+<button aria-label="shopping_bag" class="hover:text-primary dark:hover:text-inverse-primary transition-colors duration-300 transform active:scale-95 transition-transform relative">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">shopping_bag</span>
+<span class="absolute -top-1 -right-1 bg-sale-blush text-white text-[10px] font-bold rounded-full h-4 w-4 flex items-center justify-center">2</span>
+</button>
+<button aria-label="person" class="hover:text-primary dark:hover:text-inverse-primary transition-colors duration-300 transform active:scale-95 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">person</span>
+</button>
+</div>
+</div>
+<!-- Mobile Header (Visible only on mobile) -->
+<div class="flex md:hidden justify-between items-center w-full px-margin-mobile py-4">
+<button aria-label="menu" class="text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<a class="font-headline-md text-headline-md font-semibold text-primary tracking-tight" href="#">
+                Моя Кроха
+            </a>
+<div class="flex gap-4">
+<button aria-label="search" class="text-primary">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button aria-label="shopping_bag" class="text-primary relative">
+<span class="material-symbols-outlined">shopping_bag</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-grow w-full max-w-container-max mx-auto md:px-margin-desktop">
+<!-- Hero Section -->
+<section class="mt-8 mb-section-gap px-margin-mobile md:px-0">
+<div class="relative w-full h-[500px] md:h-[600px] rounded-xl overflow-hidden bg-surface-container">
+<!-- Main Banner Image -->
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A premium, soft-lit lifestyle photograph featuring a modern, high-end baby stroller against a blurred, airy background. The color palette is composed of warm neutral tones, soft creams, and muted earthy shades, embodying a sophisticated, nurturing, and luxurious aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida/AEtjO1VE-IIOp4hJMZ1WxcAGK1a9hloWzZbp8NIa0tDxibvpC3MVo_MBiiGnqhZfpkBwDNVv0drTSiPbbk9LqkxmVPTEBkC-6uXJAwS2eJRo1mrrQnsSnNYBOTXrFAFj_FI47aXwnhxMKQSFK5bV0dXQk3A8M-kchKgYD7R_3E6UoFWbA_mLkKMqIFYxUF1pAvTFxEEnjMo2KUtcMLLMBzUPVVnrpqIAcB1bc10mI3cBNV3Nq_aDaehDYncmvV0')"></div>
+<!-- Gradient Overlay for Text Readability -->
+<div class="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent"></div>
+<!-- Hero Content -->
+<div class="absolute bottom-0 left-0 p-8 md:p-16 max-w-xl">
+<span class="inline-block px-3 py-1 bg-surface/90 text-primary font-label-upper text-label-upper rounded-full mb-4">Новинка</span>
+<h1 class="font-display-lg text-display-lg text-on-primary mb-4 drop-shadow-md">
+                        Новая коллекция колясок 2024
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-primary/90 mb-8 drop-shadow-sm">
+                        Премиальный комфорт и стиль для вас и вашего малыша. Откройте для себя идеальное сочетание дизайна и функциональности.
+                    </p>
+<button class="bg-primary text-on-primary rounded-lg px-8 py-4 font-body-md text-body-md font-semibold hover:bg-primary-container transition-colors shadow-lg">
+                        Смотреть коллекцию
+                    </button>
+</div>
+</div>
+</section>
+<!-- Instagram-style Categories (Circle Avatars) -->
+<section class="mb-section-gap px-margin-mobile md:px-0">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-6">Популярные категории</h2>
+<div class="flex overflow-x-auto gap-6 pb-4 hide-scrollbar">
+<!-- Category 1 -->
+<a class="flex flex-col items-center gap-2 group flex-shrink-0 w-20 md:w-24" href="#">
+<div class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-warm-bg border-2 border-outline-variant/30 flex items-center justify-center overflow-hidden p-1 group-hover:border-primary transition-colors">
+<div class="w-full h-full rounded-full bg-cover bg-center" data-alt="Close up lifestyle shot of a premium baby stroller fabric in soft beige tone, well-lit, shallow depth of field." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDjhprYI1pL9T8HUKo5YLQf9KprwC4ByAiPoT2VibXFfRLtacB_fX_7d7wiDHaiEkhZjsyp_KajWrBykG7Qw2CmkJR379GRbmkQjhX1SPBJ8Gt0mjaCLS7g4HUp43sOwlhu20hq9gmNlRowWxGV6VLnj-zMmmoNx-2z7hcm8dnsMexGchZNQY9KWiAZUqFCEt654sae7k3083_4yGfZNn_ZhBRd4m1JNW6Cqzlbxmz0aZd7s0mbh9eJ')"></div>
+</div>
+<span class="font-body-sm text-body-sm text-center text-on-surface-variant group-hover:text-primary transition-colors line-clamp-1">Коляски</span>
+</a>
+<!-- Category 2 -->
+<a class="flex flex-col items-center gap-2 group flex-shrink-0 w-20 md:w-24" href="#">
+<div class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-warm-bg border-2 border-outline-variant/30 flex items-center justify-center overflow-hidden p-1 group-hover:border-primary transition-colors">
+<div class="w-full h-full rounded-full bg-cover bg-center" data-alt="Close up shot of a modern, safe baby car seat interior, soft padding, luxurious neutral colors, soft lighting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCAVQUr-G3sAA4OgHvK6MloR_Yo9wt9QHTD8ztrbS2evZPM3yjZ2hLhfARndw45TBE5oct8_MpMaQbszkYwb6IkDu2CY7EQ2_Su_WbN1anmAAslzde4LvvrcYS1UUX8JuSWTTNHH89kQlC3SPIMUTf-iLVm-D3edYNpoTcDGPTHD8v1vSRDQl8GF1OHSG5NIgaisWRpuaQlhVZ1YP2fafZSn83JfAk3CzzWvqNswMWhuHkGH37mhyfu')"></div>
+</div>
+<span class="font-body-sm text-body-sm text-center text-on-surface-variant group-hover:text-primary transition-colors line-clamp-1">Автокресла</span>
+</a>
+<!-- Category 3 -->
+<a class="flex flex-col items-center gap-2 group flex-shrink-0 w-20 md:w-24" href="#">
+<div class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-warm-bg border-2 border-outline-variant/30 flex items-center justify-center overflow-hidden p-1 group-hover:border-primary transition-colors">
+<div class="w-full h-full rounded-full bg-cover bg-center" data-alt="Minimalist elegant wooden baby crib corner, soft white sheets, warm inviting sunlight, high end nursery decor." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCnlxS4y0LsBKLzmRLsUEeLJD8LDfbnhrRK7bKvLn5HX3RqGwpYCZ8dLFXYL_TMX_Hc3PXxuBA5cM8U_3PncAWHifDEPnFbjCcMghtEUrMLUxVBPmKabMy19xbq5w3zcyOxQ3540gFQ0cTw2sDHs1YDmqP4om9LdUnPivohWOjt-XX4CXCzqq0yW007DJKcaM--kXtgMaqJ2ZiO0QpwaHopxLqhMTFFeA5AVu_tgF4ImtbFGNGkl0TJ')"></div>
+</div>
+<span class="font-body-sm text-body-sm text-center text-on-surface-variant group-hover:text-primary transition-colors line-clamp-1">Кроватки</span>
+</a>
+<!-- Category 4 -->
+<a class="flex flex-col items-center gap-2 group flex-shrink-0 w-20 md:w-24" href="#">
+<div class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-warm-bg border-2 border-outline-variant/30 flex items-center justify-center overflow-hidden p-1 group-hover:border-primary transition-colors">
+<div class="w-full h-full rounded-full bg-cover bg-center" data-alt="Stack of folded premium organic cotton baby blankets in muted earthy pastel colors, soft texture focus." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCPL8FLZwT7-kZpddvX9LnbD7dD-AA49Gmkeg9m3eSOGdcaflJlkO-KSUpLUSPNCXt8vbDzd1tBVUibScqqLzjU9WWgb-rWbvgRC1xEE636y47KRsGyeOd02fpxnOoersTjwsu5HEScIuWXg89gtqf9zm_kjV15doB_1PuqFTW9bhlUv1-gNaoaWZY2wun9g67BzbV9B8UpRmhiUwZ-03eBXGxbt0G6ejQUTt5WEFJF7gtTkOLkQMpy')"></div>
+</div>
+<span class="font-body-sm text-body-sm text-center text-on-surface-variant group-hover:text-primary transition-colors line-clamp-1">Текстиль</span>
+</a>
+<!-- Category 5 -->
+<a class="flex flex-col items-center gap-2 group flex-shrink-0 w-20 md:w-24" href="#">
+<div class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-warm-bg border-2 border-outline-variant/30 flex items-center justify-center overflow-hidden p-1 group-hover:border-primary transition-colors">
+<div class="w-full h-full rounded-full bg-cover bg-center" data-alt="Modern stylish baby changing dresser, clean lines, minimalist design, light wood finish, bright airy room." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAlHYBLxJg_NN6Ixf7ZEamIgFehqFEi43tzRISC1nLoRBlrudkEDB0Qrc3XBqiu6G5xsz4uGtQNTD2zin5Jx1mMKQ7lXTriJq6MxLDdrtXfqFrTZDRFO5qEe96IYRZbreVkvi5NYPwq0ZQqmPpPikhFxFkdFa3cDxKpeSUhXRMNQlxHsZrH6chES9UJjDJhTDcP97R9t-gw2irUAZpWtidDMwz4eYjKCtn7C_Z36H0QMgw7HqbAjP8u')"></div>
+</div>
+<span class="font-body-sm text-body-sm text-center text-on-surface-variant group-hover:text-primary transition-colors line-clamp-1">Комоды</span>
+</a>
+</div>
+</section>
+<!-- Best Sellers Section -->
+<section class="mb-section-gap px-margin-mobile md:px-0">
+<div class="flex justify-between items-end mb-8">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Хиты продаж</h2>
+<a class="font-body-md text-body-md text-primary hover:underline hidden md:block" href="#">Смотреть все</a>
+</div>
+<!-- Bento-style Grid for Products -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Product Card 1: Gaudi -->
+<div class="bg-warm-bg rounded-xl overflow-hidden group hover:shadow-lg transition-shadow duration-300 relative border border-outline-variant/20">
+<div class="absolute top-4 left-4 z-10">
+<span class="bg-sage-accent text-white font-label-upper text-label-upper px-2 py-1 rounded-full">Хит</span>
+</div>
+<button class="absolute top-4 right-4 z-10 text-on-surface-variant hover:text-sale-blush transition-colors bg-white/50 backdrop-blur-sm rounded-full p-2 flex items-center justify-center">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<div class="h-64 w-full bg-surface-container relative overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-700" data-alt="Full shot of BubaGo Gaudi stroller, elegant design, neutral beige color, isolated on a soft off-white background, studio lighting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCWGBZcqVEXjf9LMLglr4UpW7zFxV2FxsO5N23a2rLI0C0O1aO0hV4f05QrGYcY5ZWz6dQTAOY-qjjOu8m7fZ3e1ebFVM0cd1hKpFDoPjOmNu2aqEtxIZqfnry1ASHCDa6TcnUO8h9cpSNuBIzLo-QceQ4DuLVx2O2AdKuNInHrgTZeIi0fBcu1fDN_Axgc9xVX5FlwsJgGnWXg3F-rRhxtMeqrccCCmBJQ-ZZtcwjGIbD88zxmtXem')"></div>
+</div>
+<div class="p-6">
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-1">BubaGo</p>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Коляска Gaudi 3 в 1</h3>
+<p class="font-body-sm text-body-sm text-outline mb-4 line-clamp-2">Идеальный выбор для городских прогулок. Легкая, маневренная и невероятно стильная.</p>
+<div class="flex justify-between items-center">
+<span class="font-headline-md text-headline-md text-primary font-semibold">1 450 BYN</span>
+<button class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-sm">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 2: Ultra -->
+<div class="bg-warm-bg rounded-xl overflow-hidden group hover:shadow-lg transition-shadow duration-300 relative border border-outline-variant/20">
+<button class="absolute top-4 right-4 z-10 text-on-surface-variant hover:text-sale-blush transition-colors bg-white/50 backdrop-blur-sm rounded-full p-2 flex items-center justify-center">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<div class="h-64 w-full bg-surface-container relative overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-700" data-alt="Full shot of Carrello Ultra stroller, sleek dark grey frame with premium fabric, isolated on a light soft grey background, soft lighting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCDuP39mtW1lYLINs1twlIo8Zl_r5UZ7F0k0QtELsjz_v0qGMyaDWZjmSIVDo2NrBO6r7zjiUiLXH5xrLfrgsUBZRztTQiZLRqsmpojkENvOVE76LrWisvyENgvRGvghtz5z3rq54hg56RvDMKIEDHVONDCn4jEgmM34WlqFWMQqrWHJb5UxwQidSCpK6QJslSOVYvzvyWweqn__4ZOLsDaVljwA6UEc0UuffyJMzgQgXR81Y_N1P-8')"></div>
+</div>
+<div class="p-6">
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-1">Carrello</p>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Коляска Ultra</h3>
+<p class="font-body-sm text-body-sm text-outline mb-4 line-clamp-2">Компактное складывание и премиальные материалы. Комфорт в каждом движении.</p>
+<div class="flex justify-between items-center">
+<span class="font-headline-md text-headline-md text-primary font-semibold">980 BYN</span>
+<button class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-sm">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 3: Perina -->
+<div class="bg-warm-bg rounded-xl overflow-hidden group hover:shadow-lg transition-shadow duration-300 relative border border-outline-variant/20">
+<div class="absolute top-4 left-4 z-10">
+<span class="bg-sale-blush text-white font-label-upper text-label-upper px-2 py-1 rounded-full">-15%</span>
+</div>
+<button class="absolute top-4 right-4 z-10 text-on-surface-variant hover:text-sale-blush transition-colors bg-white/50 backdrop-blur-sm rounded-full p-2 flex items-center justify-center">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<div class="h-64 w-full bg-surface-container relative overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-700" data-alt="A beautifully styled baby crib featuring Perina premium textile bedding in soft pastel colors, natural light streaming across the fabric." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAmGR4uB2vaXw9QrxQqvmSK7Vm1FIQLMVgedfYR-t0Bvuw6WoaTbpHY-Mgi7nHEfFRpEfG_exgNPMWGiUnJMNWtAhzKg9aebDnr-xnYuDAt-Ioy_aEeiGjsDs7eI6LGbQEtUrE0IZYNPVvQ3L2HZH2IC-LegyC55rGdLG4aU3_hDoQ6134gEm5AR9VqJGIiPj0kn33B-6nvNIfyDEp3_jp-JkFYPMaeHdO0RBTgPrb_XYVjwosxJHXR')"></div>
+</div>
+<div class="p-6">
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-1">Perina</p>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Постельный комплект</h3>
+<p class="font-body-sm text-body-sm text-outline mb-4 line-clamp-2">Нежнейший хлопок для сладких снов вашего малыша. Безопасно и экологично.</p>
+<div class="flex justify-between items-center">
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-primary font-semibold">120 BYN</span>
+<span class="font-body-sm text-body-sm text-outline line-through text-xs">145 BYN</span>
+</div>
+<button class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-sm">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-6 text-center md:hidden">
+<a class="font-body-md text-body-md text-primary border border-primary px-6 py-2 rounded-lg inline-block" href="#">Смотреть все</a>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-highest dark:bg-inverse-surface mt-section-gap full-width flat no shadows">
+<div class="w-full px-margin-mobile md:px-margin-desktop py-12 flex flex-col md:flex-row justify-between items-start gap-gutter max-w-container-max mx-auto">
+<div class="flex flex-col gap-4 max-w-xs">
+<span class="font-headline-md text-headline-md text-primary dark:text-inverse-primary font-semibold">Моя Кроха</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant">Премиальные товары для детей. Забота о самом важном с первых дней жизни.</p>
+</div>
+<div class="flex flex-col gap-3 mt-6 md:mt-0">
+<h4 class="font-body-md text-body-md font-semibold text-on-surface mb-2">Покупателям</h4>
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#">Доставка</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#">Оплата</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#">Гарантия</a>
+</div>
+<div class="flex flex-col gap-3 mt-6 md:mt-0">
+<h4 class="font-body-md text-body-md font-semibold text-on-surface mb-2">Контакты</h4>
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#">Контакты</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#">Instagram</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#">Telegram</a>
+</div>
+</div>
+<div class="w-full border-t border-outline-variant/30 py-6 px-margin-mobile md:px-margin-desktop text-center md:text-left flex flex-col md:flex-row justify-between items-center max-w-container-max mx-auto">
+<span class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant">© 2024 Моя Кроха. Премиальные товары для детей.</span>
+<div class="flex gap-4 mt-4 md:mt-0">
+<span class="material-symbols-outlined text-outline">payments</span>
+<span class="material-symbols-outlined text-outline">local_shipping</span>
+</div>
+</div>
+</footer>
+</body></html>

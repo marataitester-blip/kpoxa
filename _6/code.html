@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+
+<html lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Моя Кроха - Carrello Vector</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#e9e1dc",
+                        "on-primary": "#ffffff",
+                        "surface-dim": "#e1d8d4",
+                        "outline-variant": "#d1c4bc",
+                        "inverse-surface": "#34302c",
+                        "inverse-primary": "#d7c3b4",
+                        "sage-accent": "#A3AC9A",
+                        "on-primary-fixed": "#241910",
+                        "warm-bg": "#F9F7F5",
+                        "surface-container": "#f5ece7",
+                        "secondary-container": "#f4dfcb",
+                        "on-surface-variant": "#4e453f",
+                        "on-secondary-fixed": "#241a0e",
+                        "on-primary-fixed-variant": "#524439",
+                        "surface-container-high": "#efe6e2",
+                        "inverse-on-surface": "#f8efea",
+                        "surface-tint": "#6b5b4f",
+                        "secondary-fixed-dim": "#d7c3b0",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#fff8f5",
+                        "tertiary-container": "#79746d",
+                        "surface-container-low": "#fbf2ed",
+                        "on-tertiary-fixed": "#1e1b17",
+                        "on-error": "#ffffff",
+                        "tertiary": "#5f5b55",
+                        "on-tertiary-fixed-variant": "#4a4641",
+                        "primary-fixed-dim": "#d7c3b4",
+                        "primary": "#68594d",
+                        "on-primary-container": "#fffbff",
+                        "background": "#fff8f5",
+                        "secondary": "#6b5c4c",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed-dim": "#ccc5be",
+                        "primary-fixed": "#f4dfcf",
+                        "primary-container": "#827165",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#e8e1d9",
+                        "surface-container-highest": "#e9e1dc",
+                        "on-surface": "#1e1b18",
+                        "outline": "#7f756e",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#524436",
+                        "sale-blush": "#D4A5A5",
+                        "on-background": "#1e1b18",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed": "#f4dfcb",
+                        "on-secondary": "#ffffff",
+                        "surface": "#fff8f5",
+                        "on-tertiary-container": "#fffbff",
+                        "on-secondary-container": "#716252"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "section-gap": "80px",
+                        "container-max": "1280px",
+                        "base": "8px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "body-sm": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "label-upper": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "34px", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "label-upper": ["12px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #fff8f5; color: #1e1b18; }
+        .glass-panel { background: rgba(255, 248, 245, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(209, 196, 188, 0.3); }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="font-body-md antialiased flex flex-col min-h-screen">
+<!-- TopNavBar -->
+<header class="bg-surface/80 dark:bg-inverse-surface/80 backdrop-blur-md docked full-width top-0 sticky z-50 border-b border-outline-variant/30 dark:border-outline/20 shadow-sm opacity-95">
+<div class="flex justify-between items-center w-full px-margin-desktop py-4 max-w-container-max mx-auto">
+<!-- Brand -->
+<a class="font-headline-md text-headline-md font-semibold text-primary dark:text-inverse-primary tracking-tight" href="#">Моя Кроха</a>
+<!-- Search (Left-aligned as per JSON, but we'll center nav to balance) -->
+<div class="hidden md:flex items-center gap-2 bg-surface-container rounded-full px-4 py-2 w-64 border border-outline-variant/30">
+<span class="material-symbols-outlined text-outline" style="font-variation-settings: 'FILL' 0;">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-sm w-full text-on-surface placeholder:text-outline p-0" placeholder="Поиск товаров..." type="text"/>
+</div>
+<!-- Navigation Links -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-primary dark:text-inverse-primary font-bold border-b-2 border-primary py-1" href="#">Коляски</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors duration-300 py-1" href="#">Автокресла</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors duration-300 py-1" href="#">Мебель</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors duration-300 py-1" href="#">Текстиль</a>
+</nav>
+<!-- Trailing Icons -->
+<div class="flex items-center gap-4">
+<button class="text-on-surface hover:text-primary transition-colors duration-300 Active: scale-95 transition-transform"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">favorite</span></button>
+<button class="text-on-surface hover:text-primary transition-colors duration-300 Active: scale-95 transition-transform relative">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">shopping_bag</span>
+<span class="absolute -top-1 -right-1 bg-sale-blush text-on-primary text-[10px] font-bold h-4 w-4 rounded-full flex items-center justify-center">2</span>
+</button>
+<button class="text-on-surface hover:text-primary transition-colors duration-300 Active: scale-95 transition-transform hidden md:block"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">person</span></button>
+<!-- Mobile Menu Toggle -->
+<button class="md:hidden text-on-surface"><span class="material-symbols-outlined">menu</span></button>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-8 md:py-12 space-y-section-gap">
+<!-- Product Overview Section -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-gutter lg:gap-12">
+<!-- Image Gallery (Left, 7 cols) -->
+<div class="lg:col-span-7 flex flex-col gap-4">
+<!-- Main Image -->
+<div class="w-full aspect-[4/5] bg-surface-container rounded-xl overflow-hidden relative group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A close-up shot of the premium Carrello Vector stroller mechanism, focusing on the dark green matte metal frame and textured fabric. The lighting is soft and warm, highlighting the high-quality materials and sophisticated design in a modern minimalist setting." src="https://lh3.googleusercontent.com/aida/AEtjO1XeFG_e7pp2t48zYqiDimWHKmIbdEsYwYV20TRmH4EbmpKMxf4T4ItkCQ0tKf3Vgae0_Yo2l3Y5vrzsWEpzkHW516_xLcFzw--gMib_WXG1iDHsmk1Q5S_VlIoih8GcGTlSVndgN4omFCwEtrPw-PM5IbhHBo6mMB8oIVsiT36Go9A3m3odJkBDg15ORmTXarQSysFQva0RzkmEfygGexK31ctMxw6wi0Hv8QooF_wmOpTWbBc_z09wq4Y"/>
+<!-- Badges -->
+<div class="absolute top-4 left-4 flex flex-col gap-2">
+<span class="bg-sage-accent text-on-primary font-label-upper text-label-upper px-3 py-1 rounded-full shadow-sm">НОВИНКА</span>
+<span class="bg-surface/90 backdrop-blur-sm text-primary font-label-upper text-label-upper px-3 py-1 rounded-full shadow-sm border border-outline-variant/20">ПРЕМИУМ</span>
+</div>
+</div>
+<!-- Thumbnails -->
+<div class="grid grid-cols-4 gap-4">
+<button class="aspect-square bg-surface-container rounded-lg overflow-hidden border-2 border-primary">
+<img class="w-full h-full object-cover" data-alt="Thumbnail of the stroller mechanism" src="https://lh3.googleusercontent.com/aida/AEtjO1XeFG_e7pp2t48zYqiDimWHKmIbdEsYwYV20TRmH4EbmpKMxf4T4ItkCQ0tKf3Vgae0_Yo2l3Y5vrzsWEpzkHW516_xLcFzw--gMib_WXG1iDHsmk1Q5S_VlIoih8GcGTlSVndgN4omFCwEtrPw-PM5IbhHBo6mMB8oIVsiT36Go9A3m3odJkBDg15ORmTXarQSysFQva0RzkmEfygGexK31ctMxw6wi0Hv8QooF_wmOpTWbBc_z09wq4Y"/>
+</button>
+<button class="aspect-square bg-surface-container rounded-lg overflow-hidden border-2 border-transparent hover:border-outline-variant transition-colors">
+<img class="w-full h-full object-cover" data-alt="A side view of the elegant Carrello Vector stroller in a soft cream color, standing on a minimalist wooden floor against a plain warm-white background. The lighting is studio-quality, emphasizing the sleek curves and premium fabric canopy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEnhwauFX0iRDSYZsoUbFXFwVmGcPQgO6MU5-G5dycsKq33ORnDGGmj82tBafGGwVeyY2xsZwAouUlWI7HxHJNFrskbeQOjaSp4qJP8IlVD5_98JNWSdkr9UlUB04QgXbCoh0crW4ohAlEgCNdcPKNjNtdi-y8Detph6KrllO4fojUEs-sCh5GvRI8dTHI7Jq6Ktkf0KCkgVR0P-Vb6MPi7fLwJJ-XVZX5lySrxAV3NZAA1Rc9QhcV"/>
+</button>
+<button class="aspect-square bg-surface-container rounded-lg overflow-hidden border-2 border-transparent hover:border-outline-variant transition-colors">
+<img class="w-full h-full object-cover" data-alt="A detailed shot of the stroller's leather-wrapped handle and the integrated parent cup holder. The focus is sharp on the stitching of the handle, conveying luxury and attention to detail in a bright, airy environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDceG139ZBdhYwN4W15i8XORjcM6TjlEKOKTyHGGrrQZ69xSz8Qtxa0vhEAqeQppLFqCB2dSDb2BRXMZxYniq2QNLvvCliYfRxF0aQDR1X2WNt4C1ITxIIR3MN8I3ltHpLCv6DDOE3yghD5YY2WafP-bitlYesYomYkEVzWEI4AyzPuC5M2zSAfTX9cMN4wzAlyK-q_utQ375Xaa5jTGhlh2TdY8l1IluDn3narkB6SjUu8HZv5i9zG"/>
+</button>
+<button class="aspect-square bg-surface-container rounded-lg overflow-hidden border-2 border-transparent hover:border-outline-variant transition-colors relative">
+<img class="w-full h-full object-cover opacity-80" data-alt="A lifestyle image showing the Carrello Vector stroller folded compactly in the trunk of a modern SUV. The lighting suggests late afternoon, showcasing the stroller's practicality and compact design for travel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDk12qacWaNOETs4bqHBP5p9NBE1xy0IvUxP8lUgpSs1n9g1vOgUeYkWe2f6kmDRI3LhTdrlTr-3gQfdh-Vf_5q8MFLjk30ZgXEzZVzI7WGjCZ4C5sPtnedJDcxEpDDzq7Dw2F3x5NGiqVigy_0WHb2TBIHEN81_SyDP10PgXC4QmmUd66yU8AQy27SoGKMcHbRhVkS7JJ1MpVXXgvVEJrU4j_3LOfhMkcTVIfOSzJbeilTNP4bwpCo"/>
+<div class="absolute inset-0 flex items-center justify-center bg-inverse-surface/10 backdrop-blur-sm text-primary font-body-sm font-semibold">+3</div>
+</button>
+</div>
+</div>
+<!-- Product Details & Actions (Right, 5 cols) -->
+<div class="lg:col-span-5 flex flex-col sticky top-24 h-fit">
+<!-- Title & Price -->
+<div class="mb-6">
+<h1 class="font-display-lg text-display-lg text-on-surface mb-2">Carrello Vector 2 в 1</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-4">Универсальная коляска премиум-класса</p>
+<div class="flex items-end gap-4">
+<span class="font-headline-lg text-headline-lg text-primary">64 990 ₽</span>
+<span class="font-body-lg text-body-lg text-outline line-through mb-1">72 500 ₽</span>
+</div>
+</div>
+<div class="w-full h-px bg-outline-variant/30 my-6"></div>
+<!-- Color Selection -->
+<div class="mb-6">
+<h3 class="font-body-md text-body-md font-semibold text-on-surface mb-3">Цвет: <span class="font-normal text-on-surface-variant ml-1" id="selected-color-name">Изумрудный (Emerald Green)</span></h3>
+<div class="flex gap-3">
+<button aria-label="Select Emerald Green" class="w-12 h-12 rounded-full border-2 border-primary p-1" onclick="document.getElementById('selected-color-name').innerText='Изумрудный (Emerald Green)'">
+<span class="block w-full h-full rounded-full bg-[#3d5a4d]"></span>
+</button>
+<button aria-label="Select Pearl White" class="w-12 h-12 rounded-full border-2 border-transparent hover:border-outline-variant p-1 transition-colors" onclick="document.getElementById('selected-color-name').innerText='Жемчужный (Pearl White)'">
+<span class="block w-full h-full rounded-full bg-[#f0ebd8]"></span>
+</button>
+<button aria-label="Select Graphite" class="w-12 h-12 rounded-full border-2 border-transparent hover:border-outline-variant p-1 transition-colors" onclick="document.getElementById('selected-color-name').innerText='Графит (Graphite)'">
+<span class="block w-full h-full rounded-full bg-[#4a4a4a]"></span>
+</button>
+<button aria-label="Select Caramel" class="w-12 h-12 rounded-full border-2 border-transparent hover:border-outline-variant p-1 transition-colors" onclick="document.getElementById('selected-color-name').innerText='Карамель (Caramel)'">
+<span class="block w-full h-full rounded-full bg-[#b88665]"></span>
+</button>
+</div>
+</div>
+<!-- Configuration (2 in 1 vs 3 in 1) -->
+<div class="mb-8">
+<h3 class="font-body-md text-body-md font-semibold text-on-surface mb-3">Комплектация</h3>
+<div class="grid grid-cols-2 gap-3">
+<button class="border-2 border-primary bg-surface rounded-lg py-3 px-4 text-center font-body-sm font-semibold text-primary transition-colors">
+                            2 в 1
+                            <span class="block font-normal text-[11px] text-outline mt-1">Люлька + Прогулка</span>
+</button>
+<button class="border border-outline-variant bg-transparent rounded-lg py-3 px-4 text-center font-body-sm text-on-surface-variant hover:border-primary transition-colors">
+                            3 в 1
+                            <span class="block text-[11px] text-outline mt-1">+ Автокресло (+12 000 ₽)</span>
+</button>
+</div>
+</div>
+<!-- Key Specs Quick View -->
+<div class="bg-surface-container-low rounded-xl p-4 mb-8 grid grid-cols-2 gap-y-4 gap-x-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 0, 'wght' 300;">scale</span>
+<div class="flex flex-col">
+<span class="font-label-upper text-[10px] text-outline uppercase tracking-wider">Вес шасси</span>
+<span class="font-body-sm text-on-surface font-medium">8.5 кг</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 0, 'wght' 300;">water_drop</span>
+<div class="flex flex-col">
+<span class="font-label-upper text-[10px] text-outline uppercase tracking-wider">Ткань</span>
+<span class="font-body-sm text-on-surface font-medium">Водоотталкивающая</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 0, 'wght' 300;">settings_overscan</span>
+<div class="flex flex-col">
+<span class="font-label-upper text-[10px] text-outline uppercase tracking-wider">Ширина шасси</span>
+<span class="font-body-sm text-on-surface font-medium">59 см</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 0, 'wght' 300;">shield_moon</span>
+<div class="flex flex-col">
+<span class="font-label-upper text-[10px] text-outline uppercase tracking-wider">Амортизация</span>
+<span class="font-body-sm text-on-surface font-medium">Мягкая, 4 колеса</span>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex flex-col gap-3 mt-auto">
+<button class="w-full bg-primary hover:bg-secondary text-on-primary font-body-lg font-semibold py-4 rounded-lg shadow-sm transition-all duration-300 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">shopping_cart</span>
+                        В корзину
+                    </button>
+<button class="w-full border border-primary text-primary hover:bg-primary-fixed/30 font-body-md py-3 rounded-lg transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">storefront</span>
+                        Наличие в бутиках
+                    </button>
+</div>
+<!-- Delivery info -->
+<div class="mt-6 flex flex-col gap-2 font-body-sm text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-sm">local_shipping</span>
+<span>Бесплатная доставка курьером завтра</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-sm">verified</span>
+<span>Официальная гарантия 12 месяцев</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid: Details & Features -->
+<section class="mt-section-gap">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-8 text-center">Продумана до мелочей</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[300px]">
+<!-- Feature 1: Large Panel -->
+<div class="md:col-span-2 bg-surface-container rounded-2xl p-8 flex flex-col justify-end relative overflow-hidden group">
+<img class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" data-alt="A detailed view of the baby stroller bassinet interior, showing ultra-soft, quilted hypoallergenic cotton lining in pristine white. Soft, diffused lighting emphasizes the plush texture and comfort, conveying a sense of premium safety and nurturing care." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqMAJwNRyxxTqf7U559jcQACQqRkKvQUdJ2akPKyhScJg4jZlPNk6UDNQ_C7AUsbaye_2vrQO_bxt4zD39wwbDO9Myv9tYIb9BEP74no6RH1l5eJD6SCLrbW96hEQUqb3MS7zSAJAMOOr1wUon3MwR9iOFBDhF_K-sr5oFUoSeVI3hg0empzGdZwhBPZLGp-pbO7nmgaVWFkOw4n1WE-COKpXi13TmNyNBpIl6AO4KF1oeh6hANzM5"/>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/90 via-inverse-surface/30 to-transparent"></div>
+<div class="relative z-10 text-on-primary">
+<h3 class="font-headline-md text-headline-md mb-2">Премиальный микроклимат</h3>
+<p class="font-body-md opacity-90 max-w-md">Внутренняя обивка люльки выполнена из гипоаллергенного органического хлопка. Система двойной вентиляции обеспечивает комфорт в любую погоду.</p>
+</div>
+</div>
+<!-- Feature 2: Small Panel -->
+<div class="bg-surface-container-high rounded-2xl p-6 flex flex-col justify-between">
+<div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">compress</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Компактное сложение</h3>
+<p class="font-body-sm text-on-surface-variant">Шасси складывается одной рукой вместе с прогулочным блоком. Занимает минимум места в багажнике.</p>
+</div>
+</div>
+<!-- Feature 3: Small Panel -->
+<div class="bg-surface-container-low rounded-2xl p-6 flex flex-col justify-between border border-outline-variant/30">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">motion_sensor_active</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Мягкий ход</h3>
+<p class="font-body-sm text-on-surface-variant">Инновационная система амортизации на всех 4 колесах с возможностью регулировки жесткости.</p>
+</div>
+</div>
+<!-- Feature 4: Materials (Wide) -->
+<div class="md:col-span-2 bg-warm-bg rounded-2xl p-8 flex items-center gap-8 border border-outline-variant/20">
+<div class="flex-1">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3">Защита от непогоды</h3>
+<p class="font-body-md text-on-surface-variant">Внешний текстиль обладает водоотталкивающим эффектом и защитой от ультрафиолета UPF 50+. Глубокий капюшон с дополнительной секцией надежно укроет малыша от ветра и солнца.</p>
+<ul class="mt-4 space-y-2 font-body-sm text-outline">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">check</span> Водоотталкивающая пропитка</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">check</span> UPF 50+</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">check</span> Влагозащитные молнии</li>
+</ul>
+</div>
+<div class="w-1/3 aspect-square rounded-xl overflow-hidden hidden md:block relative">
+<img class="w-full h-full object-cover" data-alt="Close up texture shot of premium waterproof stroller fabric in a sophisticated muted tone, with water droplets elegantly beaded on the surface, demonstrating its hydrophobic properties under bright, crisp studio lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDow56DRNxRWuoPYVaCaIm3fWi7bfdRGfTK3aUnhASMU_e-0WsE3fYk9evj9SX8O-RGnnkSxPPefwTz0nvszzbxLLuZfVrQG8Rc9H063K1nm6mDY7GZ8m8Ch_VVbn2qFMiPuR1zqp4ywZwHsHKHPZPSuDnNV3jRc7njAxHixGB7iS2hngqdAcdg82eab6yvTSKWPKZPFRJM-64Bfrru9GYILESBKP9aWvl62BiF4CHF5rbAN5O0HbNb"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Specifications Table -->
+<section class="mt-section-gap max-w-4xl mx-auto">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-8">Характеристики</h2>
+<div class="bg-surface rounded-2xl border border-outline-variant/30 overflow-hidden">
+<div class="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-outline-variant/30">
+<!-- Column 1 -->
+<div class="p-0">
+<div class="px-6 py-4 flex justify-between border-b border-outline-variant/20">
+<span class="font-body-sm text-on-surface-variant">Вес с люлькой</span>
+<span class="font-body-md font-medium text-on-surface">12.5 кг</span>
+</div>
+<div class="px-6 py-4 flex justify-between border-b border-outline-variant/20 bg-surface-container-low/50">
+<span class="font-body-sm text-on-surface-variant">Вес с прогулочным блоком</span>
+<span class="font-body-md font-medium text-on-surface">11.8 кг</span>
+</div>
+<div class="px-6 py-4 flex justify-between border-b border-outline-variant/20">
+<span class="font-body-sm text-on-surface-variant">Максимальная нагрузка</span>
+<span class="font-body-md font-medium text-on-surface">22 кг</span>
+</div>
+<div class="px-6 py-4 flex justify-between border-b border-outline-variant/20 bg-surface-container-low/50">
+<span class="font-body-sm text-on-surface-variant">Размер спального места люльки</span>
+<span class="font-body-md font-medium text-on-surface">75х32х20 см</span>
+</div>
+</div>
+<!-- Column 2 -->
+<div class="p-0">
+<div class="px-6 py-4 flex justify-between border-b border-outline-variant/20">
+<span class="font-body-sm text-on-surface-variant">Диаметр колес (передние/задние)</span>
+<span class="font-body-md font-medium text-on-surface">18 / 29 см</span>
+</div>
+<div class="px-6 py-4 flex justify-between border-b border-outline-variant/20 bg-surface-container-low/50">
+<span class="font-body-sm text-on-surface-variant">Материал колес</span>
+<span class="font-body-md font-medium text-on-surface">Цельная резина (PU)</span>
+</div>
+<div class="px-6 py-4 flex justify-between border-b border-outline-variant/20">
+<span class="font-body-sm text-on-surface-variant">Регулировка ручки</span>
+<span class="font-body-md font-medium text-on-surface">Телескопическая, 5 положений</span>
+</div>
+<div class="px-6 py-4 flex justify-between border-b border-outline-variant/20 bg-surface-container-low/50">
+<span class="font-body-sm text-on-surface-variant">Установка блоков</span>
+<span class="font-body-md font-medium text-on-surface">Реверсивная</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Accessories (Cross-sell) -->
+<section class="mt-section-gap">
+<div class="flex justify-between items-end mb-8">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Идеально дополнят</h2>
+<a class="font-body-sm text-primary hover:underline hidden md:block" href="#">Смотреть все аксессуары</a>
+</div>
+<div class="flex gap-6 overflow-x-auto hide-scrollbar pb-4 -mx-margin-mobile px-margin-mobile md:mx-0 md:px-0">
+<!-- Accessory Card 1 -->
+<div class="min-w-[260px] md:min-w-[280px] bg-surface rounded-xl group cursor-pointer border border-transparent hover:border-outline-variant/30 transition-all p-4">
+<div class="aspect-square bg-surface-container rounded-lg mb-4 overflow-hidden flex items-center justify-center p-4 relative">
+<img class="object-contain w-3/4 h-3/4 group-hover:scale-110 transition-transform duration-500" data-alt="A stylish, minimalist changing bag or backpack designed for a stroller, presented against a clean white background. The bag is made of premium fabric matching the stroller's aesthetic, with subtle leather accents and refined hardware. Bright, even lighting highlights its shape and quality." src="https://lh3.googleusercontent.com/aida/AEtjO1XClVMGBB-uUbr7GyD9iXy_megZZjpWVB4RFOiePxcNgLs3RNzphAK9TCjS9eiOEYCkdjxYft94T2LU5gficu0dmI79h_shr-h20KuLJTk0GXIwdveCw-t0sS21BqPw4OGMc9QkH-7SmUi96zRKbPfO3nNmFDmA2q7Kskg3acoBNYgW2J1fNW653Wfy6dGUjQxHomqAfQ2ESDyirKD0eqTlQo24-hH83WecDQ5xfijsBQisZDCbG1vgjQ"/>
+<button class="absolute bottom-3 right-3 w-8 h-8 bg-surface/80 backdrop-blur rounded-full flex items-center justify-center text-primary shadow-sm opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+<h4 class="font-body-md font-medium text-on-surface mb-1">Рюкзак для мамы Vector</h4>
+<p class="font-body-sm text-outline mb-2">В цвет коляски</p>
+<span class="font-body-lg text-primary font-semibold">4 500 ₽</span>
+</div>
+<!-- Accessory Card 2 -->
+<div class="min-w-[260px] md:min-w-[280px] bg-surface rounded-xl group cursor-pointer border border-transparent hover:border-outline-variant/30 transition-all p-4">
+<div class="aspect-square bg-surface-container rounded-lg mb-4 overflow-hidden flex items-center justify-center p-4 relative">
+<img class="object-contain w-3/4 h-3/4 group-hover:scale-110 transition-transform duration-500" data-alt="A high-quality, plush winter footmuff or sleeping bag for a baby stroller. The exterior is sleek, waterproof material, while the interior is lined with cozy, soft faux fur or fleece in a neutral tone. Photographed cleanly on a light background with soft shadowing." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQuDSJA--BeF05QUBEo3Efugdl0IaQCFMw_dwB5u88wrN60Pcz1wMJCPFRBqISx0E94fsvc7BUb8KYH4r6OlDZQREiEb5jIgx2CBRHfrnZLdAmhEtNesags2IO7h8cASKHQu1iWu1iUZNqRgYn3AK9gCbqcyQcPY3sd_Mk4SY2P4NVMGxvMZoL80jcnLNX4svZbF6WNlV78be4qYEfHvCcs8-tRu9egz0Eb7jIWQX3rD-00f__YJQW"/>
+<button class="absolute bottom-3 right-3 w-8 h-8 bg-surface/80 backdrop-blur rounded-full flex items-center justify-center text-primary shadow-sm opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+<h4 class="font-body-md font-medium text-on-surface mb-1">Зимний конверт Premium</h4>
+<p class="font-body-sm text-outline mb-2">Натуральная овчина</p>
+<span class="font-body-lg text-primary font-semibold">8 900 ₽</span>
+</div>
+<!-- Accessory Card 3 -->
+<div class="min-w-[260px] md:min-w-[280px] bg-surface rounded-xl group cursor-pointer border border-transparent hover:border-outline-variant/30 transition-all p-4">
+<div class="aspect-square bg-surface-container rounded-lg mb-4 overflow-hidden flex items-center justify-center p-4 relative">
+<img class="object-contain w-1/2 h-1/2 group-hover:scale-110 transition-transform duration-500" data-alt="A universal cup holder attachment for a stroller frame. Made of sleek black matte plastic, designed with minimalist lines. Shown independently against a bright, sterile white studio background to highlight its functional design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuADI-dpm8TZcogHFWm2yQxcpZddw5IHZXm6hUCn9aVESP2Bkg2PPo1egtQXndhxmN_CGOVf3cw--AU4SOpI6yiaPZ8lH9vV8ey9Rr7Wqo-Fnb54SkL2tEekENnpArZC334kF6UqBIWQEE-JyR2aGGcyP364ZT_qlnIu2K32MnBuYIwerNDiUTir6BCvY1bOxwKehvBCFr-1NUFUf544ku7VAchqrA9rysSrudGyUVX-rmWYqCcNMVyQ"/>
+<button class="absolute bottom-3 right-3 w-8 h-8 bg-surface/80 backdrop-blur rounded-full flex items-center justify-center text-primary shadow-sm opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+<h4 class="font-body-md font-medium text-on-surface mb-1">Подстаканник универсальный</h4>
+<p class="font-body-sm text-outline mb-2">Матовый пластик</p>
+<span class="font-body-lg text-primary font-semibold">950 ₽</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-highest dark:bg-inverse-surface mt-section-gap w-full px-margin-desktop py-12 flex flex-col md:flex-row justify-between items-start gap-gutter max-w-container-max mx-auto">
+<div class="flex flex-col gap-4 max-w-xs">
+<span class="font-headline-md text-headline-md text-primary dark:text-inverse-primary tracking-tight font-semibold">Моя Кроха</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant">
+                © 2024 Моя Кроха. Премиальные товары для детей.
+            </p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-8 w-full md:w-auto">
+<div class="flex flex-col gap-3 font-body-sm text-body-sm">
+<span class="font-semibold text-on-surface mb-1">Покупателям</span>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors" href="#">Доставка</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors" href="#">Гарантия</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors" href="#">Оплата</a>
+</div>
+<div class="flex flex-col gap-3 font-body-sm text-body-sm">
+<span class="font-semibold text-on-surface mb-1">Связь</span>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors" href="#">Контакты</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors" href="#">Instagram</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors" href="#">Telegram</a>
+</div>
+</div>
+</footer>
+</body></html>

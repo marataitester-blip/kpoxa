@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+<html lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Корзина - Моя Кроха</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-variant": "#e9e1dc",
+                        "on-primary": "#ffffff",
+                        "surface-dim": "#e1d8d4",
+                        "outline-variant": "#d1c4bc",
+                        "inverse-surface": "#34302c",
+                        "inverse-primary": "#d7c3b4",
+                        "sage-accent": "#A3AC9A",
+                        "on-primary-fixed": "#241910",
+                        "warm-bg": "#F9F7F5",
+                        "surface-container": "#f5ece7",
+                        "secondary-container": "#f4dfcb",
+                        "on-surface-variant": "#4e453f",
+                        "on-secondary-fixed": "#241a0e",
+                        "on-primary-fixed-variant": "#524439",
+                        "surface-container-high": "#efe6e2",
+                        "inverse-on-surface": "#f8efea",
+                        "surface-tint": "#6b5b4f",
+                        "secondary-fixed-dim": "#d7c3b0",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#fff8f5",
+                        "tertiary-container": "#79746d",
+                        "surface-container-low": "#fbf2ed",
+                        "on-tertiary-fixed": "#1e1b17",
+                        "on-error": "#ffffff",
+                        "tertiary": "#5f5b55",
+                        "on-tertiary-fixed-variant": "#4a4641",
+                        "primary-fixed-dim": "#d7c3b4",
+                        "primary": "#68594d",
+                        "on-primary-container": "#fffbff",
+                        "background": "#fff8f5",
+                        "secondary": "#6b5c4c",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed-dim": "#ccc5be",
+                        "primary-fixed": "#f4dfcf",
+                        "primary-container": "#827165",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#e8e1d9",
+                        "surface-container-highest": "#e9e1dc",
+                        "on-surface": "#1e1b18",
+                        "outline": "#7f756e",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#524436",
+                        "sale-blush": "#D4A5A5",
+                        "on-background": "#1e1b18",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed": "#f4dfcb",
+                        "on-secondary": "#ffffff",
+                        "surface": "#fff8f5",
+                        "on-tertiary-container": "#fffbff",
+                        "on-secondary-container": "#716252"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "gutter": "24px",
+                        "section-gap": "80px",
+                        "container-max": "1280px",
+                        "base": "8px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "64px"
+                    },
+                    fontFamily: {
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "body-sm": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "label-upper": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"]
+                    },
+                    fontSize: {
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "34px", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "label-upper": ["12px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #F9F7F5; /* warm-bg fallback */
+            -webkit-font-smoothing: antialiased;
+        }
+        /* Custom scrollbar for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fbf2ed;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d1c4bc;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-warm-bg text-on-surface flex flex-col min-h-screen">
+<!-- TopNavBar Shared Component -->
+<header class="bg-surface/80 dark:bg-inverse-surface/80 backdrop-blur-md docked full-width top-0 sticky z-50 border-b border-outline-variant/30 dark:border-outline/20 shadow-sm opacity-95">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+<!-- Mobile Menu Icon (Placeholder for functionality) -->
+<button class="md:hidden text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+<!-- Brand Logo -->
+<a class="font-headline-md text-headline-md font-semibold text-primary dark:text-inverse-primary tracking-tight" href="#">
+                Моя Кроха
+            </a>
+<!-- Desktop Navigation Links -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors duration-300 font-body-md text-body-md" href="#">Коляски</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors duration-300 font-body-md text-body-md" href="#">Автокресла</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors duration-300 font-body-md text-body-md" href="#">Мебель</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors duration-300 font-body-md text-body-md" href="#">Текстиль</a>
+</nav>
+<!-- Trailing Icons -->
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-300">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<button class="text-primary dark:text-inverse-primary transition-colors duration-300 relative group">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">shopping_bag</span>
+<!-- Notification Badge -->
+<span class="absolute -top-1 -right-1 bg-sale-blush text-on-primary text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">2</span>
+</button>
+<button class="hidden md:block text-on-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-300">
+<span class="material-symbols-outlined">person</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-8 md:py-12">
+<!-- Page Header -->
+<div class="mb-8 md:mb-12">
+<h1 class="font-display-lg text-headline-lg-mobile md:text-display-lg text-primary tracking-tight">Корзина</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">2 товара в вашем заказе</p>
+</div>
+<!-- Cart Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-gutter relative items-start">
+<!-- Left Column: Cart Items -->
+<div class="lg:col-span-8 flex flex-col gap-6">
+<!-- Cart Item 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-4 md:p-6 flex gap-4 md:gap-6 relative border border-outline-variant/30 hover:shadow-[0_8px_30px_rgb(104,89,77,0.06)] transition-shadow duration-300">
+<!-- Product Image -->
+<div class="w-24 h-24 md:w-32 md:h-32 flex-shrink-0 bg-surface-container-low rounded-lg overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="A studio photograph of a premium, modern baby stroller in a soft beige color. The stroller has elegant matte black hardware and luxurious textural fabric. It is positioned against a pristine white background, lit by soft, diffused light that highlights the 'quiet luxury' aesthetic and tactile materiality of the product. The mood is sophisticated and nurturing." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXqJpQ2W2ZbS657xjO78wVx9IXcCfQnUjpYyMzVi2PdOsixafUuXlvkLUiayyMwEhDX06rK1R_aKRgR-ghpPcA8t_gZq1uhwUSes-r1yXrTbLuSsO7hS3wmAi4vF44DSVpPgQ64YuuXF-hdpl-ISmAnGcdLg1VRFXnJ8QB0C3Sl8E5ZPwqdtTcq1T0dZYpKWMExUOsAzmoxRITFaLdDPSpdPrmSh6ydLvzSwiAXdyvLWQJTb07cXoZ"/>
+</div>
+<!-- Product Details -->
+<div class="flex flex-col flex-grow justify-between">
+<div class="pr-8">
+<h3 class="font-headline-md text-body-lg md:text-headline-md text-on-surface leading-tight mb-1">Коляска 2 в 1 Carrello Epica</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Цвет: Песочный беж</p>
+</div>
+<div class="flex flex-wrap items-end justify-between gap-4 mt-4">
+<!-- Price -->
+<div>
+<span class="font-headline-md text-body-lg md:text-headline-md text-primary font-semibold">45 900 ₽</span>
+</div>
+<!-- Quantity Controls -->
+<div class="flex items-center bg-surface-container rounded-lg p-1 border border-outline-variant/50">
+<button class="w-8 h-8 flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-variant rounded-md transition-colors">
+<span class="material-symbols-outlined text-sm">remove</span>
+</button>
+<input class="w-10 text-center bg-transparent border-none focus:ring-0 font-body-md text-body-md text-on-surface p-0 mx-1" readonly="" type="text" value="1"/>
+<button class="w-8 h-8 flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-variant rounded-md transition-colors">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Remove Action -->
+<button aria-label="Удалить товар" class="absolute top-4 right-4 md:top-6 md:right-6 text-outline hover:text-error transition-colors">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Cart Item 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-4 md:p-6 flex gap-4 md:gap-6 relative border border-outline-variant/30 hover:shadow-[0_8px_30px_rgb(104,89,77,0.06)] transition-shadow duration-300">
+<!-- Product Image -->
+<div class="w-24 h-24 md:w-32 md:h-32 flex-shrink-0 bg-surface-container-low rounded-lg overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="A close-up photograph of a folded, premium baby bed linen set made of organic muslin. The fabric has a crinkled, soft texture and is colored in a muted, earthy sage green. The set is tied with a simple natural cotton ribbon. The lighting is soft and natural, emphasizing the organic materials and creating a serene, minimalist atmosphere consistent with high-end retail." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGPGk4zeDAi9lrGEKhqZwSI-4X-fms44ONpqY2mFZvRpO-eDwz7XjOOc6wwjfsBjXfQdM7UNf522Rnm2mkmthGJoUQ5w6DsYws4t-ZbRELTKnc0Ntw4-7l_8dPd97KqruAGiClLH1jveP1hlQMjERfHYDsB2tg6RscmEtzXC7S2ilMSJYGerXOrLAhvUOUeDuLYw5OPESiWdR4hIJBLHyVIMhViSGBmk59_eRTxXlNvATEU64wRzYU"/>
+<!-- Discount Badge -->
+<div class="absolute top-2 left-2 bg-sale-blush text-on-primary font-label-upper text-label-upper px-2 py-1 rounded-full">
+                            -15%
+                        </div>
+</div>
+<!-- Product Details -->
+<div class="flex flex-col flex-grow justify-between">
+<div class="pr-8">
+<h3 class="font-headline-md text-body-lg md:text-headline-md text-on-surface leading-tight mb-1">Комплект белья Perina "Лесные сны"</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Материал: 100% органический хлопок</p>
+</div>
+<div class="flex flex-wrap items-end justify-between gap-4 mt-4">
+<!-- Price -->
+<div>
+<span class="font-headline-md text-body-lg md:text-headline-md text-primary font-semibold">5 525 ₽</span>
+<span class="font-body-sm text-body-sm text-outline line-through ml-2">6 500 ₽</span>
+</div>
+<!-- Quantity Controls -->
+<div class="flex items-center bg-surface-container rounded-lg p-1 border border-outline-variant/50">
+<button class="w-8 h-8 flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-variant rounded-md transition-colors">
+<span class="material-symbols-outlined text-sm">remove</span>
+</button>
+<input class="w-10 text-center bg-transparent border-none focus:ring-0 font-body-md text-body-md text-on-surface p-0 mx-1" readonly="" type="text" value="1"/>
+<button class="w-8 h-8 flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-variant rounded-md transition-colors">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Remove Action -->
+<button aria-label="Удалить товар" class="absolute top-4 right-4 md:top-6 md:right-6 text-outline hover:text-error transition-colors">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+</div>
+<!-- Right Column: Order Summary (Sticky) -->
+<div class="lg:col-span-4 sticky top-24">
+<div class="bg-surface-container-low rounded-2xl p-6 md:p-8 shadow-[0_12px_40px_rgb(104,89,77,0.04)] border border-outline-variant/20">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-6">Ваш заказ</h2>
+<!-- Free Shipping Indicator -->
+<div class="mb-8 bg-surface-container-lowest p-4 rounded-xl border border-sage-accent/20">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-sage-accent">local_shipping</span>
+<p class="font-body-sm text-body-sm text-on-surface font-medium">Бесплатная доставка активна!</p>
+</div>
+<div class="w-full h-1.5 bg-surface-variant rounded-full overflow-hidden">
+<div class="w-full h-full bg-sage-accent rounded-full"></div>
+</div>
+<p class="font-body-sm text-[12px] text-on-surface-variant mt-2 text-center">Вы набрали сумму для бесплатной доставки по РФ</p>
+</div>
+<!-- Summary Lines -->
+<div class="flex flex-col gap-4 border-b border-outline-variant/30 pb-6 mb-6">
+<div class="flex justify-between items-center font-body-md text-body-md text-on-surface">
+<span>Товары (2)</span>
+<span>52 400 ₽</span>
+</div>
+<div class="flex justify-between items-center font-body-md text-body-md text-sale-blush">
+<span>Скидка на товары</span>
+<span>- 975 ₽</span>
+</div>
+<div class="flex justify-between items-center font-body-md text-body-md text-on-surface">
+<span>Доставка</span>
+<span class="text-sage-accent font-medium">Бесплатно</span>
+</div>
+</div>
+<!-- Promo Code Input -->
+<div class="mb-6">
+<label class="sr-only" for="promo">Промокод</label>
+<div class="flex gap-2">
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg px-4 py-3 font-body-sm text-body-sm text-on-surface focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-colors placeholder:text-outline-variant" id="promo" placeholder="Введите промокод" type="text"/>
+<button class="bg-surface-variant text-on-surface-variant px-4 py-3 rounded-lg font-body-sm text-body-sm font-medium hover:bg-surface-dim transition-colors">
+                                Применить
+                            </button>
+</div>
+</div>
+<!-- Total -->
+<div class="flex justify-between items-end mb-8">
+<span class="font-headline-md text-body-lg text-on-surface">Итого</span>
+<span class="font-headline-lg text-headline-lg text-primary">51 425 ₽</span>
+</div>
+<!-- CTA -->
+<button class="w-full bg-primary hover:bg-primary-container text-on-primary font-body-lg text-body-lg font-medium py-4 px-6 rounded-xl transition-colors duration-300 flex items-center justify-center gap-2 group">
+                        Перейти к оформлению
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<p class="font-body-sm text-[12px] text-outline text-center mt-4">Нажимая кнопку, вы соглашаетесь с условиями оферты</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Shared Component -->
+<footer class="w-full bg-surface-container-highest dark:bg-inverse-surface mt-section-gap flat no shadows">
+<div class="w-full px-margin-mobile md:px-margin-desktop py-12 flex flex-col md:flex-row justify-between items-start gap-gutter max-w-container-max mx-auto">
+<div class="flex flex-col gap-4 max-w-sm">
+<span class="font-headline-md text-headline-md text-primary dark:text-inverse-primary font-semibold">Моя Кроха</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant leading-relaxed">
+                    © 2024 Моя Кроха. Премиальные товары для детей.
+                </p>
+</div>
+<div class="grid grid-cols-2 gap-x-12 gap-y-4">
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors opacity-80 hover:opacity-100" href="#">Доставка</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors opacity-80 hover:opacity-100" href="#">Контакты</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors opacity-80 hover:opacity-100" href="#">Гарантия</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors opacity-80 hover:opacity-100" href="#">Instagram</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors opacity-80 hover:opacity-100" href="#">Оплата</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors opacity-80 hover:opacity-100" href="#">Telegram</a>
+</div>
+</div>
+</footer>
+</body></html>

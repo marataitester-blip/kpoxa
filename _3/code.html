@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+
+<html lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Плюшевый мишка - TinySteps</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700&amp;family=Be+Vietnam+Pro:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary": "#366758",
+                      "tertiary-fixed-dim": "#e3c0a8",
+                      "surface-container-highest": "#e0e3e6",
+                      "on-primary-fixed": "#001f27",
+                      "secondary-fixed": "#b9eedb",
+                      "inverse-surface": "#2d3133",
+                      "on-error": "#ffffff",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary-fixed-variant": "#1a4d5b",
+                      "primary": "#356573",
+                      "on-tertiary": "#ffffff",
+                      "outline-variant": "#c0c8cb",
+                      "surface-container-low": "#f2f4f7",
+                      "secondary-fixed-dim": "#9dd1bf",
+                      "on-tertiary-fixed-variant": "#5a422f",
+                      "primary-fixed": "#baeafb",
+                      "on-primary-container": "#2e5f6d",
+                      "on-secondary": "#ffffff",
+                      "on-surface-variant": "#40484b",
+                      "primary-container": "#a7d7e8",
+                      "on-secondary-fixed-variant": "#1c4f41",
+                      "on-primary": "#ffffff",
+                      "error-container": "#ffdad6",
+                      "tertiary": "#745945",
+                      "surface-dim": "#d8dadd",
+                      "on-surface": "#191c1e",
+                      "on-secondary-fixed": "#002018",
+                      "tertiary-fixed": "#ffdcc4",
+                      "surface": "#f7f9fc",
+                      "error": "#ba1a1a",
+                      "tertiary-container": "#edc9b0",
+                      "on-tertiary-fixed": "#2a1708",
+                      "surface-bright": "#f7f9fc",
+                      "surface-variant": "#e0e3e6",
+                      "on-error-container": "#93000a",
+                      "surface-container-high": "#e6e8eb",
+                      "inverse-primary": "#9ecedf",
+                      "primary-fixed-dim": "#9ecedf",
+                      "on-tertiary-container": "#6d5340",
+                      "surface-tint": "#356573",
+                      "on-secondary-container": "#3a6c5d",
+                      "outline": "#71787b",
+                      "secondary-container": "#b6ebd8",
+                      "background": "#f7f9fc",
+                      "inverse-on-surface": "#eff1f4",
+                      "on-background": "#191c1e",
+                      "surface-container": "#eceef1"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px",
+                      "2xl": "1.5rem"
+              },
+              "spacing": {
+                      "margin-mobile": "20px",
+                      "container-max": "1280px",
+                      "gutter": "24px",
+                      "base": "8px",
+                      "margin-desktop": "64px"
+              },
+              "fontFamily": {
+                      "headline-lg": ["Plus Jakarta Sans"],
+                      "headline-lg-mobile": ["Plus Jakarta Sans"],
+                      "body-md": ["Be Vietnam Pro"],
+                      "label-sm": ["Be Vietnam Pro"],
+                      "headline-md": ["Plus Jakarta Sans"],
+                      "label-md": ["Be Vietnam Pro"],
+                      "body-lg": ["Be Vietnam Pro"]
+              },
+              "fontSize": {
+                      "headline-lg": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                      "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+              }
+            },
+          }
+        }
+    </script>
+<style>
+        body { background-color: theme('colors.background'); color: theme('colors.on-background'); }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .shadow-soft { box-shadow: 0px 10px 40px rgba(167, 215, 232, 0.08); }
+        .shadow-hover { box-shadow: 0px 15px 50px rgba(167, 215, 232, 0.15); }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col font-body-md text-body-md antialiased">
+<!-- TopAppBar -->
+<header class="w-full sticky top-0 z-50 bg-surface/80 backdrop-blur-md shadow-[0px_10px_30px_rgba(167,215,232,0.1)] shadow-sm">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex justify-between items-center h-20">
+<div class="flex items-center gap-4 md:hidden">
+<button class="p-2 rounded-full hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-primary">menu</span></button>
+</div>
+<a class="font-headline-md text-headline-md text-primary font-bold hidden md:block" href="#">TinySteps</a>
+<a class="font-headline-md text-headline-md-mobile text-primary font-bold md:hidden" href="#">TinySteps</a>
+<!-- Web Navigation -->
+<nav class="hidden md:flex gap-8">
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="#">Одежда</a>
+<a class="text-primary border-b-2 border-primary font-bold pb-1" href="#">Игрушки</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="#">Коляски</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="#">Питание</a>
+</nav>
+<div class="flex items-center gap-2 md:gap-4">
+<!-- Search on right as per JSON -->
+<div class="hidden md:flex items-center bg-surface-container-low rounded-full px-4 py-2 border border-outline-variant focus-within:border-primary focus-within:shadow-[0_0_8px_rgba(53,101,115,0.2)] transition-all">
+<input class="bg-transparent border-none focus:ring-0 text-body-md text-on-surface placeholder:text-outline w-32 lg:w-48" placeholder="Поиск..." type="text"/>
+<span class="material-symbols-outlined text-outline">search</span>
+</div>
+<button class="md:hidden p-2 text-primary hover:bg-surface-container-high rounded-full transition-colors"><span class="material-symbols-outlined">search</span></button>
+<button class="p-2 text-primary hover:bg-surface-container-high rounded-full transition-colors scale-95 active:scale-90"><span class="material-symbols-outlined">favorite</span></button>
+<button class="p-2 text-primary hover:bg-surface-container-high rounded-full transition-colors scale-95 active:scale-90"><span class="material-symbols-outlined">shopping_cart</span></button>
+<button class="p-2 text-primary hover:bg-surface-container-high rounded-full transition-colors scale-95 active:scale-90 hidden sm:block"><span class="material-symbols-outlined">person</span></button>
+</div>
+</div>
+</header>
+<!-- SideNavBar (Hidden on Mobile, Visible on Desktop for navigation context) -->
+<!-- Applying rules: Hiding nav if linear/transactional. This is a product page, so keeping main nav structure makes sense for an e-commerce flow to keep browsing, but we will suppress SideNav for a cleaner product view and rely on TopAppBar for main nav context as per 'Soft Minimalism' guidelines for focused content. Let's omit SideNav to maximize canvas for the product. -->
+<!-- Main Content Canvas -->
+<main class="flex-grow max-w-container-max mx-auto w-full px-margin-mobile md:px-margin-desktop py-8 md:py-12 flex flex-col gap-12">
+<!-- Breadcrumbs -->
+<nav class="flex text-label-sm text-outline gap-2 items-center">
+<a class="hover:text-primary transition-colors" href="#">Главная</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Игрушки</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Мягкие игрушки</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="text-on-surface">Плюшевый мишка</span>
+</nav>
+<!-- Product Hero Section -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
+<!-- Image Gallery -->
+<div class="flex flex-col-reverse md:flex-row gap-4 h-[500px] lg:h-[600px]">
+<!-- Thumbnails -->
+<div class="flex md:flex-col gap-4 overflow-x-auto md:overflow-y-auto md:w-24 shrink-0 pb-2 md:pb-0 hide-scrollbar">
+<button class="w-20 h-20 md:w-24 md:h-24 rounded-xl overflow-hidden border-2 border-primary shrink-0 opacity-100">
+<img class="w-full h-full object-cover" data-alt="A soft, fluffy classic brown teddy bear sitting upright against a pristine white background. The lighting is high-key and gentle, emphasizing the plush texture and the teddy bear's friendly, rounded features. The overall aesthetic is calm, safe, and modern, aligning with a nurturing child-friendly brand. Shot with a shallow depth of field to keep the focus entirely on the toy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9gAjvdPWKDQK_60Dq0TalegtqzuyfVlz2HA9hVUjAinrZnDst5VJTZjcQsulku8B8nLjvQ9SvTZS0mapWN90Kp7PzdjESsC5RoHXHdfm2_SWpg-qBUawzZC2PT7UAue8H7sfsD-g66cEfhlgn5qrkoSZUYC4vPICEMjx30gsiItDe5qvuSfRJ4GhQjtPsIAp_p2E75t3ME3UgIVZo5397V3dE0lWeZRyW6PgZbArOUvk-ogK4tEBm"/>
+</button>
+<button class="w-20 h-20 md:w-24 md:h-24 rounded-xl overflow-hidden border-2 border-transparent hover:border-primary/50 shrink-0 opacity-70 hover:opacity-100 transition-all">
+<img class="w-full h-full object-cover" data-alt="Close up shot of a classic brown teddy bear's face, focusing on its shiny, safe plastic eyes and stitched nose. The lighting is soft and diffused, highlighting the delicate fibers of the plush material. The background is a slightly warm, off-white surface, creating a cozy and inviting atmosphere typical of high-quality children's products." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAU5G-s3KiQjyspI5aAZjZSi5GPtQBWmsHAMoxt1KgTuqTAA0ubaNc9QsdzXzrqmi8hvk3zog0OBxlR24NzPeaW39Z0UvBf3JF8OX9Sukrm7ts6yIjrEJ_PepvSzkDrcN-wx364Sah7GiRBbvmuW6ejKCPTJr8M5G3hR11iSkKTuAI8Ppq0c0hANjrBTxA6Bj47hByrTL_jKmk-45_Jbxh35C6GvqjqiG_rPhVNQTL9mlSnRGfyUH-"/>
+</button>
+<button class="w-20 h-20 md:w-24 md:h-24 rounded-xl overflow-hidden border-2 border-transparent hover:border-primary/50 shrink-0 opacity-70 hover:opacity-100 transition-all">
+<img class="w-full h-full object-cover" data-alt="A classic brown teddy bear placed in a minimalist, modern nursery setting. The teddy bear sits on a light grey-blue patterned rug, with a blurred white crib in the background. Natural window light spills in softly, creating gentle shadows. The mood is serene, playful, and securely domestic, fitting a premium baby brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCow_8Ukn5djlhBeACgEK20sLNKbVdA2Os8ijFclR4q1nPl2eIIeWXV8fwQD6wo7ZDA6YZFxiEFc8FDPrSQ9o9ftQ2TffpDNwESGtYLDPo7EwzJ6YAfn9JQ-Iib_JJuqEpSxCnLaflH7OBw0nabUdXUMu5xj8EbdznAYfnXDnvHTRdcHMyC_69NMyCZ3Mi7sWOKhGLFmoRUXt436y59oE0II-2SFzAiungMmzmDvdjP7O50unXMGYj5"/>
+</button>
+</div>
+<!-- Main Image -->
+<div class="flex-grow bg-surface-container-lowest rounded-2xl overflow-hidden shadow-soft flex items-center justify-center relative group cursor-zoom-in">
+<!-- Sale Tag -->
+<div class="absolute top-4 left-4 bg-tertiary-container text-on-tertiary-container font-label-sm px-3 py-1 rounded-full z-10">Новинка</div>
+<img class="w-full h-full object-contain p-8 group-hover:scale-105 transition-transform duration-500" data-alt="A large, highly detailed image of a classic brown plush teddy bear isolated against a pure white background. The lighting is meticulously arranged to show the depth and softness of the fur, making it look incredibly huggable and safe for children. The bear has a gentle smile and soft, rounded paws. The aesthetic is clean, premium, and inherently comforting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5jec6B3HrfN3rdFSej17tuOfzCSaabWtbb9eNKS69DSQFuFRQEVu_ki5qIwIzHWidpTnqwQW189p15CifxNCTnGYTU8wvc0zWigbOzv6WWIPSC0xVCxCMEL4-zAwCShgSbDPss3Sq_Jc9wcFvuCbvnyJv2Zw7aCvYuOHUftjeZV6GtIDsYIqFL3CGdHwufg4LbILP-LcD99jbLmIRqkXxdc47LRm0qhWPXxJ0oNuPMq3B0L8G7BrO"/>
+</div>
+</div>
+<!-- Product Details -->
+<div class="flex flex-col gap-6">
+<!-- Title & Price -->
+<div>
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-2">Плюшевый мишка "Теодор"</h1>
+<div class="flex items-center gap-2 mb-4">
+<div class="flex text-[#FFD700]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star_half</span>
+</div>
+<span class="font-label-sm text-outline-variant ml-2">4.8 (124 отзыва)</span>
+</div>
+<div class="font-headline-lg text-headline-lg text-primary font-bold">1 200 руб.</div>
+</div>
+<div class="h-px bg-surface-container-high w-full"></div>
+<!-- Color Selection -->
+<div>
+<h3 class="font-label-md text-label-md text-on-surface-variant mb-3">Цвет: Классический коричневый</h3>
+<div class="flex gap-3">
+<button aria-label="Классический коричневый" class="w-10 h-10 rounded-full bg-[#8B5A2B] ring-2 ring-offset-2 ring-primary border border-surface-container-highest shadow-sm"></button>
+<button aria-label="Светло-бежевый" class="w-10 h-10 rounded-full bg-[#EADDCA] border border-surface-container-highest shadow-sm hover:ring-2 hover:ring-offset-2 hover:ring-outline-variant transition-all"></button>
+<button aria-label="Серый" class="w-10 h-10 rounded-full bg-[#D3D3D3] border border-surface-container-highest shadow-sm hover:ring-2 hover:ring-offset-2 hover:ring-outline-variant transition-all"></button>
+</div>
+</div>
+<!-- Key Features Mini-Bento -->
+<div class="grid grid-cols-2 gap-4 my-2">
+<div class="bg-surface-container-low rounded-xl p-4 flex items-center gap-3">
+<div class="bg-primary-container text-on-primary-container p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined">child_friendly</span>
+</div>
+<span class="font-label-sm text-on-surface">Безопасно 0+</span>
+</div>
+<div class="bg-surface-container-low rounded-xl p-4 flex items-center gap-3">
+<div class="bg-secondary-container text-on-secondary-container p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined">local_laundry_service</span>
+</div>
+<span class="font-label-sm text-on-surface">Машинная стирка</span>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex flex-col sm:flex-row gap-4 mt-auto">
+<button class="flex-grow bg-primary text-on-primary font-label-md text-label-md rounded-full py-4 px-8 flex justify-center items-center gap-2 hover:bg-on-primary-fixed-variant active:scale-[0.98] transition-all shadow-md">
+<span class="material-symbols-outlined">shopping_cart</span>
+                        В корзину
+                    </button>
+<button class="bg-surface-container-lowest border-2 border-primary text-primary rounded-full w-14 h-14 sm:w-auto sm:px-6 flex justify-center items-center hover:bg-primary-container hover:text-on-primary-container active:scale-[0.98] transition-all flex-shrink-0">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">favorite</span>
+</button>
+</div>
+<div class="bg-secondary-fixed/30 rounded-xl p-4 flex items-start gap-3 mt-4">
+<span class="material-symbols-outlined text-secondary mt-0.5">local_shipping</span>
+<div>
+<div class="font-label-md text-on-surface">Бесплатная доставка</div>
+<div class="font-label-sm text-on-surface-variant">При заказе от 3000 руб. Завтра или позже.</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Details, Specs, Reviews Tabs -->
+<div class="mt-12 bg-surface-container-lowest rounded-2xl shadow-soft p-6 md:p-8">
+<!-- Tabs Header -->
+<div class="flex gap-8 border-b border-surface-container-high mb-8 overflow-x-auto hide-scrollbar">
+<button class="pb-4 font-label-md text-label-md text-primary border-b-2 border-primary whitespace-nowrap">Описание</button>
+<button class="pb-4 font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap">Характеристики</button>
+<button class="pb-4 font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap">Отзывы (124)</button>
+</div>
+<!-- Tab Content: Description -->
+<div class="font-body-md text-body-md text-on-surface-variant max-w-3xl space-y-4">
+<p>Знакомьтесь, Теодор — не просто плюшевый медведь, а верный друг для вашего малыша. Созданный с учетом самых строгих стандартов безопасности, этот мишка идеален для объятий перед сном и веселых игр днем.</p>
+<p>Его невероятно мягкий мех не линяет и гипоаллергенен, а специальный наполнитель сохраняет форму даже после многочисленных стирок. Глазки и носик надежно вышиты, исключая риск проглатывания мелких деталей.</p>
+<p>Теодор станет прекрасным подарком на выписку, день рождения или просто чтобы подарить ребенку немного больше уюта и тепла.</p>
+</div>
+</div>
+<!-- Suggested Products -->
+<div class="mt-8">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-6">С этим товаром покупают</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+<!-- Suggestion 1 -->
+<div class="bg-surface-container-lowest rounded-2xl p-4 flex flex-col gap-3 shadow-soft hover:shadow-hover transition-shadow group">
+<div class="aspect-square bg-surface rounded-xl overflow-hidden mb-2">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A soft, pastel-colored baby blanket neatly folded. The fabric looks incredibly soft, perhaps fleece or a soft cotton blend. The background is simple and clean, highlighting the texture and comforting colors of the blanket. Shot with soft, inviting lighting appropriate for baby products." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_L88WLIFama_nTu_M6q2Tl6p8sOlfB0sQLvbaCATvFH29D9rkE9I_GR1l-mgMFJCo_uorSgRfbl08hjxvxwml1l_unE7hIDdIImP-yauzczEJK_eRX3iV70LJvk0aL-LghGBnMml_uevrJ9P5FTi-acSAUdPQU44dMgLaDyTaLhZaM4viA7ZwAHt-AAvINo8xqNNX7R7expHdaS5JSjDXOEE5ScLsuhX_lLD5LhRYpe_CoTpBTtmA"/>
+</div>
+<div class="font-label-md text-on-surface">Детский плед "Облако"</div>
+<div class="font-label-md text-primary mt-auto">850 руб.</div>
+</div>
+<!-- Suggestion 2 -->
+<div class="bg-surface-container-lowest rounded-2xl p-4 flex flex-col gap-3 shadow-soft hover:shadow-hover transition-shadow group">
+<div class="aspect-square bg-surface rounded-xl overflow-hidden mb-2">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A set of wooden baby blocks in soft, muted pastel colors stacked playfully. The wood grain is slightly visible through the non-toxic paint. The setting is bright and clean, emphasizing safe, natural materials for children. The overall feel is modern and minimalist." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOWWJayFFJF6OE0_Pv7YPMPT4mUXAbvNVTvLiG7FKi9h1ZiOL0HVhkIhuAJ6XDOggrYZx51RKTGb25EbabHBnCd2B2YTVZqir65GNbkowkwMsagz3IQ6z3F7AoAyDaRbiiQrRzmjd8Brl3XDZ93KpRVwYVOx2Ctc6EJkIlnttQl5_BrePY3rtnFdg83g3P2ArUP9Cx4lZdhGJNMEniM0Pgnx8I4ag_SdlESkONLNgy3W5VG13pSj3h"/>
+</div>
+<div class="font-label-md text-on-surface">Набор кубиков "Пастель"</div>
+<div class="font-label-md text-primary mt-auto">1 100 руб.</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-highest dark:bg-inverse-surface w-full mt-auto">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12 grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="flex flex-col gap-4">
+<span class="font-headline-md text-headline-md text-secondary">TinySteps</span>
+<span class="font-body-md text-body-md text-on-surface-variant opacity-80">© 2023 TinySteps. Забота в каждой детали.</span>
+</div>
+<div class="flex flex-col gap-2">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary underline transition-all opacity-80 hover:opacity-100" href="#">О нас</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary underline transition-all opacity-80 hover:opacity-100" href="#">Доставка</a>
+</div>
+<div class="flex flex-col gap-2">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary underline transition-all opacity-80 hover:opacity-100" href="#">Возврат</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary underline transition-all opacity-80 hover:opacity-100" href="#">Контакты</a>
+</div>
+<!-- Added a bit of filler for the 4th column to balance the grid visually -->
+<div class="flex flex-col gap-4">
+<div class="font-label-md text-on-surface-variant">Мы в соцсетях:</div>
+<div class="flex gap-4">
+<button class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-secondary hover:bg-secondary-container transition-colors"><span class="material-symbols-outlined">share</span></button>
+<button class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-secondary hover:bg-secondary-container transition-colors"><span class="material-symbols-outlined">mail</span></button>
+</div>
+</div>
+</div>
+</footer>
+<style>
+        /* Utility for hiding scrollbars but keeping functionality */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</body></html>

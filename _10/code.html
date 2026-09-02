@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Моя Кроха - Каталог товаров</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#e9e1dc",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#f4dfcb",
+                        "on-surface": "#1e1b18",
+                        "on-tertiary-fixed": "#1e1b17",
+                        "on-secondary-container": "#716252",
+                        "on-tertiary-fixed-variant": "#4a4641",
+                        "on-tertiary-container": "#fffbff",
+                        "on-background": "#1e1b18",
+                        "sale-blush": "#D4A5A5",
+                        "surface-container": "#f5ece7",
+                        "tertiary-fixed": "#e8e1d9",
+                        "on-surface-variant": "#4e453f",
+                        "surface-dim": "#e1d8d4",
+                        "secondary-container": "#f4dfcb",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#d7c3b0",
+                        "primary-fixed-dim": "#d7c3b4",
+                        "surface": "#fff8f5",
+                        "tertiary-fixed-dim": "#ccc5be",
+                        "surface-bright": "#fff8f5",
+                        "on-primary-fixed-variant": "#524439",
+                        "on-primary-fixed": "#241910",
+                        "inverse-primary": "#d7c3b4",
+                        "outline": "#7f756e",
+                        "inverse-on-surface": "#f8efea",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed-variant": "#524436",
+                        "error-container": "#ffdad6",
+                        "primary": "#68594d",
+                        "surface-tint": "#6b5b4f",
+                        "primary-container": "#827165",
+                        "on-secondary-fixed": "#241a0e",
+                        "surface-container-highest": "#e9e1dc",
+                        "surface-container-high": "#efe6e2",
+                        "inverse-surface": "#34302c",
+                        "secondary": "#6b5c4c",
+                        "outline-variant": "#d1c4bc",
+                        "warm-bg": "#F9F7F5",
+                        "on-primary-container": "#fffbff",
+                        "surface-container-low": "#fbf2ed",
+                        "tertiary": "#5f5b55",
+                        "tertiary-container": "#79746d",
+                        "primary-fixed": "#f4dfcf",
+                        "sage-accent": "#A3AC9A",
+                        "background": "#fff8f5",
+                        "surface-container-lowest": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "base": "8px",
+                        "section-gap": "80px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "label-upper": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "34px", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "label-upper": ["12px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: theme('colors.background'); color: theme('colors.on-background'); }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .icon-filled { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        
+        /* Custom Checkbox styles */
+        .custom-checkbox:checked + div {
+            background-color: theme('colors.primary');
+            border-color: theme('colors.primary');
+        }
+        .custom-checkbox:checked + div svg {
+            display: block;
+        }
+    </style>
+</head>
+<body class="antialiased text-on-surface bg-surface min-h-screen flex flex-col pt-20 pb-safe md:pb-0">
+<!-- TopNavBar (Desktop) -->
+<header class="hidden md:flex bg-surface/80 backdrop-blur-md dark:bg-surface-container/80 fixed top-0 w-full z-50 shadow-sm dark:shadow-none transition-all duration-300 ease-in-out">
+<div class="flex justify-between items-center px-margin-desktop max-w-container-max mx-auto h-20 w-full">
+<a class="font-headline-md text-headline-md text-primary dark:text-primary-fixed-dim tracking-tight" href="#">Моя Кроха</a>
+<nav class="flex gap-8">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Коляски</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Автокресла</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Мебель</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Текстиль</a>
+</nav>
+<div class="flex items-center gap-4">
+<button aria-label="shopping_cart" class="text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-all">
+<span class="material-symbols-outlined">shopping_cart</span>
+</button>
+<button aria-label="favorite" class="text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-all">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<button aria-label="person" class="text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-all">
+<span class="material-symbols-outlined">person</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-8">
+<!-- Breadcrumbs & Page Title -->
+<div class="mb-8">
+<nav aria-label="Breadcrumb" class="flex text-on-surface-variant font-body-sm text-body-sm mb-4">
+<ol class="inline-flex items-center space-x-1 md:space-x-3">
+<li class="inline-flex items-center">
+<a class="hover:text-primary transition-colors" href="#">Главная</a>
+</li>
+<li>
+<div class="flex items-center">
+<span class="material-symbols-outlined text-sm mx-1">chevron_right</span>
+<span class="text-on-surface">Каталог</span>
+</div>
+</li>
+</ol>
+</nav>
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary">Каталог товаров</h1>
+</div>
+<div class="flex flex-col lg:flex-row gap-gutter">
+<!-- Filters Sidebar -->
+<aside class="w-full lg:w-1/4 flex-shrink-0 mb-8 lg:mb-0">
+<div class="bg-surface-container rounded-lg p-6 border border-outline-variant/30 sticky top-28">
+<div class="flex items-center justify-between mb-6">
+<h2 class="font-headline-md text-headline-md text-primary">Фильтры</h2>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">tune</span>
+</button>
+</div>
+<!-- Category Filter -->
+<div class="mb-6 border-b border-outline-variant/50 pb-6">
+<h3 class="font-body-lg text-body-lg text-on-surface font-semibold mb-4">Категории</h3>
+<ul class="space-y-3 font-body-md text-body-md text-on-surface-variant">
+<li>
+<label class="flex items-center cursor-pointer group">
+<div class="relative flex items-center justify-center">
+<input checked="" class="custom-checkbox opacity-0 absolute h-5 w-5 cursor-pointer z-10" type="checkbox"/>
+<div class="bg-surface border-2 border-outline-variant rounded w-5 h-5 flex flex-shrink-0 justify-center items-center mr-3 focus-within:border-secondary transition-colors group-hover:border-primary">
+<svg class="hidden fill-current w-3 h-3 text-on-primary pointer-events-none" viewbox="0 0 20 20"><path d="M0 11l2-2 5 5L18 3l2 2L7 18z"></path></svg>
+</div>
+</div>
+<span class="group-hover:text-primary transition-colors">Коляски (42)</span>
+</label>
+</li>
+<li>
+<label class="flex items-center cursor-pointer group">
+<div class="relative flex items-center justify-center">
+<input class="custom-checkbox opacity-0 absolute h-5 w-5 cursor-pointer z-10" type="checkbox"/>
+<div class="bg-surface border-2 border-outline-variant rounded w-5 h-5 flex flex-shrink-0 justify-center items-center mr-3 focus-within:border-secondary transition-colors group-hover:border-primary">
+<svg class="hidden fill-current w-3 h-3 text-on-primary pointer-events-none" viewbox="0 0 20 20"><path d="M0 11l2-2 5 5L18 3l2 2L7 18z"></path></svg>
+</div>
+</div>
+<span class="group-hover:text-primary transition-colors">Автокресла (18)</span>
+</label>
+</li>
+<li>
+<label class="flex items-center cursor-pointer group">
+<div class="relative flex items-center justify-center">
+<input checked="" class="custom-checkbox opacity-0 absolute h-5 w-5 cursor-pointer z-10" type="checkbox"/>
+<div class="bg-surface border-2 border-outline-variant rounded w-5 h-5 flex flex-shrink-0 justify-center items-center mr-3 focus-within:border-secondary transition-colors group-hover:border-primary">
+<svg class="hidden fill-current w-3 h-3 text-on-primary pointer-events-none" viewbox="0 0 20 20"><path d="M0 11l2-2 5 5L18 3l2 2L7 18z"></path></svg>
+</div>
+</div>
+<span class="group-hover:text-primary transition-colors">Матрасы (24)</span>
+</label>
+</li>
+<li>
+<label class="flex items-center cursor-pointer group">
+<div class="relative flex items-center justify-center">
+<input checked="" class="custom-checkbox opacity-0 absolute h-5 w-5 cursor-pointer z-10" type="checkbox"/>
+<div class="bg-surface border-2 border-outline-variant rounded w-5 h-5 flex flex-shrink-0 justify-center items-center mr-3 focus-within:border-secondary transition-colors group-hover:border-primary">
+<svg class="hidden fill-current w-3 h-3 text-on-primary pointer-events-none" viewbox="0 0 20 20"><path d="M0 11l2-2 5 5L18 3l2 2L7 18z"></path></svg>
+</div>
+</div>
+<span class="group-hover:text-primary transition-colors">Текстиль (35)</span>
+</label>
+</li>
+</ul>
+</div>
+<!-- Brands Filter -->
+<div class="mb-6 border-b border-outline-variant/50 pb-6">
+<h3 class="font-body-lg text-body-lg text-on-surface font-semibold mb-4">Бренды</h3>
+<ul class="space-y-3 font-body-md text-body-md text-on-surface-variant">
+<li>
+<label class="flex items-center cursor-pointer group">
+<div class="relative flex items-center justify-center">
+<input checked="" class="custom-checkbox opacity-0 absolute h-5 w-5 cursor-pointer z-10" type="checkbox"/>
+<div class="bg-surface border-2 border-outline-variant rounded w-5 h-5 flex flex-shrink-0 justify-center items-center mr-3 focus-within:border-secondary transition-colors group-hover:border-primary">
+<svg class="hidden fill-current w-3 h-3 text-on-primary pointer-events-none" viewbox="0 0 20 20"><path d="M0 11l2-2 5 5L18 3l2 2L7 18z"></path></svg>
+</div>
+</div>
+<span class="group-hover:text-primary transition-colors">Carrello</span>
+</label>
+</li>
+<li>
+<label class="flex items-center cursor-pointer group">
+<div class="relative flex items-center justify-center">
+<input checked="" class="custom-checkbox opacity-0 absolute h-5 w-5 cursor-pointer z-10" type="checkbox"/>
+<div class="bg-surface border-2 border-outline-variant rounded w-5 h-5 flex flex-shrink-0 justify-center items-center mr-3 focus-within:border-secondary transition-colors group-hover:border-primary">
+<svg class="hidden fill-current w-3 h-3 text-on-primary pointer-events-none" viewbox="0 0 20 20"><path d="M0 11l2-2 5 5L18 3l2 2L7 18z"></path></svg>
+</div>
+</div>
+<span class="group-hover:text-primary transition-colors">BubaGo</span>
+</label>
+</li>
+<li>
+<label class="flex items-center cursor-pointer group">
+<div class="relative flex items-center justify-center">
+<input class="custom-checkbox opacity-0 absolute h-5 w-5 cursor-pointer z-10" type="checkbox"/>
+<div class="bg-surface border-2 border-outline-variant rounded w-5 h-5 flex flex-shrink-0 justify-center items-center mr-3 focus-within:border-secondary transition-colors group-hover:border-primary">
+<svg class="hidden fill-current w-3 h-3 text-on-primary pointer-events-none" viewbox="0 0 20 20"><path d="M0 11l2-2 5 5L18 3l2 2L7 18z"></path></svg>
+</div>
+</div>
+<span class="group-hover:text-primary transition-colors">Adamex</span>
+</label>
+</li>
+<li>
+<label class="flex items-center cursor-pointer group">
+<div class="relative flex items-center justify-center">
+<input checked="" class="custom-checkbox opacity-0 absolute h-5 w-5 cursor-pointer z-10" type="checkbox"/>
+<div class="bg-surface border-2 border-outline-variant rounded w-5 h-5 flex flex-shrink-0 justify-center items-center mr-3 focus-within:border-secondary transition-colors group-hover:border-primary">
+<svg class="hidden fill-current w-3 h-3 text-on-primary pointer-events-none" viewbox="0 0 20 20"><path d="M0 11l2-2 5 5L18 3l2 2L7 18z"></path></svg>
+</div>
+</div>
+<span class="group-hover:text-primary transition-colors">Plitex</span>
+</label>
+</li>
+<li>
+<label class="flex items-center cursor-pointer group">
+<div class="relative flex items-center justify-center">
+<input checked="" class="custom-checkbox opacity-0 absolute h-5 w-5 cursor-pointer z-10" type="checkbox"/>
+<div class="bg-surface border-2 border-outline-variant rounded w-5 h-5 flex flex-shrink-0 justify-center items-center mr-3 focus-within:border-secondary transition-colors group-hover:border-primary">
+<svg class="hidden fill-current w-3 h-3 text-on-primary pointer-events-none" viewbox="0 0 20 20"><path d="M0 11l2-2 5 5L18 3l2 2L7 18z"></path></svg>
+</div>
+</div>
+<span class="group-hover:text-primary transition-colors">Perina</span>
+</label>
+</li>
+</ul>
+</div>
+<!-- Price Filter -->
+<div>
+<h3 class="font-body-lg text-body-lg text-on-surface font-semibold mb-4">Цена</h3>
+<div class="flex gap-2">
+<div class="flex-1">
+<label class="sr-only" for="price-min">Минимальная цена</label>
+<input class="w-full bg-warm-bg border border-outline-variant rounded-md px-3 py-2 text-on-surface font-body-sm text-body-sm focus:border-secondary focus:ring-0 placeholder:text-outline-variant/70" id="price-min" placeholder="От" type="number"/>
+</div>
+<div class="flex items-center text-outline-variant">-</div>
+<div class="flex-1">
+<label class="sr-only" for="price-max">Максимальная цена</label>
+<input class="w-full bg-warm-bg border border-outline-variant rounded-md px-3 py-2 text-on-surface font-body-sm text-body-sm focus:border-secondary focus:ring-0 placeholder:text-outline-variant/70" id="price-max" placeholder="До" type="number"/>
+</div>
+</div>
+</div>
+<button class="mt-8 w-full bg-primary text-on-primary font-body-md text-body-md rounded-lg py-3 px-4 hover:bg-surface-tint transition-colors shadow-sm">
+                        Применить
+                    </button>
+</div>
+</aside>
+<!-- Product Grid -->
+<div class="w-full lg:w-3/4">
+<!-- Sort & Controls -->
+<div class="flex justify-between items-center mb-6 pb-4 border-b border-outline-variant/30">
+<p class="font-body-sm text-body-sm text-on-surface-variant">Найдено: 124 товара</p>
+<div class="flex items-center gap-4">
+<label class="font-body-sm text-body-sm text-on-surface-variant hidden sm:block" for="sort">Сортировка:</label>
+<select class="bg-transparent border-none text-primary font-body-sm text-body-sm focus:ring-0 cursor-pointer pr-8 py-1" id="sort">
+<option>По популярности</option>
+<option>Сначала дешевые</option>
+<option>Сначала дорогие</option>
+<option>Новинки</option>
+</select>
+<div class="hidden sm:flex gap-2 text-on-surface-variant">
+<button class="p-1 hover:text-primary"><span class="material-symbols-outlined">grid_view</span></button>
+<button class="p-1 hover:text-primary"><span class="material-symbols-outlined">view_list</span></button>
+</div>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+<!-- Product Card 1 -->
+<article class="group bg-surface-container-low rounded-lg p-6 border border-transparent hover:border-outline-variant/50 transition-all duration-300 relative flex flex-col h-full hover:shadow-[0_8px_30px_rgb(104,89,77,0.06)]">
+<div class="absolute top-4 left-4 z-10 flex gap-2">
+<span class="bg-sale-blush text-white font-label-upper text-label-upper px-2 py-1 rounded-full">-15%</span>
+</div>
+<button aria-label="В избранное" class="absolute top-4 right-4 z-10 text-on-surface-variant hover:text-sale-blush transition-colors p-2">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<div class="w-full aspect-square bg-warm-bg rounded-lg mb-6 overflow-hidden flex items-center justify-center relative">
+<div class="bg-cover bg-center w-full h-full group-hover:scale-105 transition-transform duration-500" data-alt="A premium baby stroller (Carrello) in soft beige, elegant modern design, displayed in a bright, minimalist studio setting with soft natural light, highlighting high-quality fabric and sleek frame, high-key photography." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBQhAGVdlo_X8mXMJbzlHUwu6kyoMfy6TqfeMU_z0HEXX7qKhIhOBUwnGTNUQRkagK-zJXCELDOU0_dGgF8tCuJa8yK-SbteEjmH3x4mn8A1wya_WQFXAHH0mAjKque3TPHYEMWvgEdfLIEAyEFv9M6UYm7ZRgt4kFYyRHZlW-uA-v4H1ZaDcx4ZITi6eWu0MKR-VDb193xvp1v4tMbDcKs3Xbct42OinRjfAaDz6SxFZ6cB6mxszy9')"></div>
+</div>
+<div class="flex flex-col flex-grow">
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-1">Carrello</p>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2 leading-tight group-hover:text-primary transition-colors">Коляска прогулочная Carrello Bravo</h3>
+<div class="mt-auto">
+<div class="flex items-center gap-2 mb-4">
+<span class="font-headline-md text-headline-md text-primary">650 BYN</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant line-through">760 BYN</span>
+</div>
+<button class="w-full border border-primary text-primary hover:bg-primary hover:text-on-primary font-body-md text-body-md rounded-lg py-2 transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px]">shopping_cart</span>
+                                    В корзину
+                                </button>
+</div>
+</div>
+</article>
+<!-- Product Card 2 (Image 74) -->
+<article class="group bg-surface-container-low rounded-lg p-6 border border-transparent hover:border-outline-variant/50 transition-all duration-300 relative flex flex-col h-full hover:shadow-[0_8px_30px_rgb(104,89,77,0.06)]">
+<div class="absolute top-4 left-4 z-10 flex gap-2">
+<span class="bg-sage-accent text-white font-label-upper text-label-upper px-2 py-1 rounded-full">Эко</span>
+</div>
+<button aria-label="В избранное" class="absolute top-4 right-4 z-10 text-on-surface-variant hover:text-sale-blush transition-colors p-2">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<div class="w-full aspect-[1.16] bg-warm-bg rounded-lg mb-6 overflow-hidden flex items-center justify-center relative p-4">
+<img alt="Матрас Plitex" class="object-contain w-full h-full group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AEtjO1XJwOXbR_opYRHqOxjjfSh_K9cS15f1dEBmAOV-UiQ-RAQbFQ7ZPbv4n-5Fzkqk3j30TMehirKY_MHR3EwUp1KeWjsgR0AWr78j7d5p6TZj-Pm-U9_C5NQmK3nScCDT_KKgJOVtb3S880aSw24M26ZilFdR8S2d7CpuZwi705OK8_1TlnYq6Y2qwl-tK7Zv_NvMPsofc1AOkFgjA9KZ9VOv0u81AvFLBrjNpH3XUtOy1GBvk-JQV64OvNM"/>
+</div>
+<div class="flex flex-col flex-grow">
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-1">Plitex</p>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2 leading-tight group-hover:text-primary transition-colors">Матрас детский Plitex Eco Life</h3>
+<div class="mt-auto">
+<div class="flex items-center gap-2 mb-4">
+<span class="font-headline-md text-headline-md text-primary">120 BYN</span>
+</div>
+<button class="w-full border border-primary text-primary hover:bg-primary hover:text-on-primary font-body-md text-body-md rounded-lg py-2 transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px]">shopping_cart</span>
+                                    В корзину
+                                </button>
+</div>
+</div>
+</article>
+<!-- Product Card 3 (Image 75) -->
+<article class="group bg-surface-container-low rounded-lg p-6 border border-transparent hover:border-outline-variant/50 transition-all duration-300 relative flex flex-col h-full hover:shadow-[0_8px_30px_rgb(104,89,77,0.06)]">
+<button aria-label="В избранное" class="absolute top-4 right-4 z-10 text-on-surface-variant hover:text-sale-blush transition-colors p-2">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<div class="w-full aspect-[1.16] bg-warm-bg rounded-lg mb-6 overflow-hidden flex items-center justify-center relative p-4">
+<img alt="Матрас Plitex ортопедический" class="object-contain w-full h-full group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AEtjO1W7ppkqJjoh-hSUnKafvgxYjb5Bymt8iD1Rv8-5XxJ6GFEFYzKmB3LGI_5YCEHOvS7a1g8N7GRb1NCzydGCqoturOObpO-Vo0i4cOakCPJHk9z4zh5MccQujl_LbIevWd2-9Z1uFQUAc5CVeDoH_ZAlwTZe8rRZAyMcP1vXKcwfcunxDHP2yney2SS-m0FSXxqqMa5UcPBSa9qb2_nYWQUMPYVXW2ruUdtiAJn16UYct2WiPSjO98GdpoA"/>
+</div>
+<div class="flex flex-col flex-grow">
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-1">Plitex</p>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2 leading-tight group-hover:text-primary transition-colors">Матрас ортопедический Plitex Comfort</h3>
+<div class="mt-auto">
+<div class="flex items-center gap-2 mb-4">
+<span class="font-headline-md text-headline-md text-primary">145 BYN</span>
+</div>
+<button class="w-full border border-primary text-primary hover:bg-primary hover:text-on-primary font-body-md text-body-md rounded-lg py-2 transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px]">shopping_cart</span>
+                                    В корзину
+                                </button>
+</div>
+</div>
+</article>
+<!-- Product Card 4 -->
+<article class="group bg-surface-container-low rounded-lg p-6 border border-transparent hover:border-outline-variant/50 transition-all duration-300 relative flex flex-col h-full hover:shadow-[0_8px_30px_rgb(104,89,77,0.06)]">
+<button aria-label="В избранном" class="absolute top-4 right-4 z-10 text-sale-blush p-2">
+<span class="material-symbols-outlined icon-filled">favorite</span>
+</button>
+<div class="w-full aspect-square bg-warm-bg rounded-lg mb-6 overflow-hidden flex items-center justify-center relative">
+<div class="bg-cover bg-center w-full h-full group-hover:scale-105 transition-transform duration-500" data-alt="A set of premium baby bed linens (Perina) with subtle pastel floral patterns, neatly folded on a clean white surface, natural daylight creating soft shadows, conveying softness and high quality, minimal aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAJSkK-3OulQgMMHtKir9yj7ie3BmVwsoDXz2suv87F220kxY9dCy6mImgKvhZyA_r0uRNvbt-SZsR6zS7HcD1b_cYIl7RVo_nF9_g2cYEc4wAxf8VTjUjyrRnlbUQOhDTtvDjLZdwlDmm916W0jS7-EHy3DsBo70f02cW3PNuyib7TES0515EK8mRSQXBwtkbj2JGbtOZ7bEVxsTog__-sNnXACXPeQJCcIPRDYuaNKiFkJX1vmTNE')"></div>
+</div>
+<div class="flex flex-col flex-grow">
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-1">Perina</p>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2 leading-tight group-hover:text-primary transition-colors">Комплект постельного белья Perina 3 предмета</h3>
+<div class="mt-auto">
+<div class="flex items-center gap-2 mb-4">
+<span class="font-headline-md text-headline-md text-primary">180 BYN</span>
+</div>
+<button class="w-full border border-primary text-primary hover:bg-primary hover:text-on-primary font-body-md text-body-md rounded-lg py-2 transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px]">shopping_cart</span>
+                                    В корзину
+                                </button>
+</div>
+</div>
+</article>
+<!-- Product Card 5 -->
+<article class="group bg-surface-container-low rounded-lg p-6 border border-transparent hover:border-outline-variant/50 transition-all duration-300 relative flex flex-col h-full hover:shadow-[0_8px_30px_rgb(104,89,77,0.06)] sm:col-span-2 xl:col-span-2 overflow-hidden">
+<div class="absolute inset-0 bg-secondary-fixed-dim/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0 pointer-events-none"></div>
+<div class="relative z-10 flex flex-col md:flex-row gap-6 h-full items-center">
+<div class="w-full md:w-1/2 aspect-[4/3] bg-warm-bg rounded-lg overflow-hidden flex items-center justify-center">
+<div class="bg-cover bg-center w-full h-full group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="A modern baby stroller (BubaGo) in deep moss green, displayed against a soft beige studio background, clean lines, premium details, soft lighting enhancing the tactile quality of the fabric, sophisticated editorial style." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDX6Qu7kTnqpc-G73HEKCuq9mQgTgvr79CRVy0SqL4t1Joks520pEE8qacLMAu45nqwLeW-7uEzQDDahV9NuM_4GQiMB5WZ60Htt00SONTgEhkWzN-VE4ZEpj22fyKLw1RZUH9t1NuxNVMJl2Bopx7xu2VGeyQW2NuoQEz-cAMBjJ4BZXJ1XLn0J0mBSOx8rgCsp_ndsyeByXbiLtUWbk8KaoIyNdyULP9IdtJwIBAwmfzxaRXP_VVp')"></div>
+</div>
+<div class="w-full md:w-1/2 flex flex-col justify-center">
+<div class="mb-4">
+<span class="bg-sage-accent text-white font-label-upper text-label-upper px-2 py-1 rounded-full inline-block mb-3">Хит продаж</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-1">BubaGo</p>
+<h3 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-3 leading-tight">Коляска 2 в 1 BubaGo Model X</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-3">Премиальная коляска с инновационной системой амортизации и просторной люлькой для максимального комфорта малыша в любых условиях.</p>
+</div>
+<div class="mt-auto">
+<div class="flex items-center gap-4 mb-6">
+<span class="font-display-lg text-display-lg text-primary">1250 BYN</span>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 bg-primary text-on-primary hover:bg-surface-tint font-body-md text-body-md rounded-lg py-3 transition-colors shadow-sm">
+                                            В корзину
+                                        </button>
+<button class="border border-outline-variant text-on-surface-variant hover:text-sale-blush hover:border-sale-blush rounded-lg p-3 transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</article>
+</div>
+<!-- Pagination -->
+<div class="mt-12 flex justify-center">
+<nav aria-label="Пагинация" class="flex items-center gap-2">
+<button class="p-2 text-outline hover:text-primary transition-colors disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-primary text-on-primary font-body-md text-body-md">1</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-container font-body-md text-body-md transition-colors">2</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-container font-body-md text-body-md transition-colors">3</button>
+<span class="text-on-surface-variant">...</span>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-container font-body-md text-body-md transition-colors">8</button>
+<button class="p-2 text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</nav>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 pb-safe bg-surface-container-low border-t border-outline-variant shadow-[0_-4px_12px_rgba(104,89,77,0.06)] md:hidden">
+<button class="flex flex-col items-center justify-center text-on-surface-variant active:bg-surface-variant scale-95 duration-100 p-2 rounded-lg">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="font-label-upper text-[10px] uppercase">Главная</span>
+</button>
+<button class="flex flex-col items-center justify-center text-primary bg-secondary-fixed/50 rounded-xl px-4 py-1 active:bg-surface-variant scale-95 duration-100">
+<span class="material-symbols-outlined mb-1 icon-filled">grid_view</span>
+<span class="font-label-upper text-[10px] uppercase">Каталог</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant active:bg-surface-variant scale-95 duration-100 p-2 rounded-lg">
+<span class="material-symbols-outlined mb-1">favorite</span>
+<span class="font-label-upper text-[10px] uppercase">Избранное</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant active:bg-surface-variant scale-95 duration-100 p-2 rounded-lg">
+<span class="material-symbols-outlined mb-1">shopping_bag</span>
+<span class="font-label-upper text-[10px] uppercase">Корзина</span>
+</button>
+</nav>
+<!-- Footer -->
+<footer class="w-full bg-surface-container dark:bg-surface-dim mt-section-gap pb-24 md:pb-0">
+<div class="w-full py-section-gap px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-container-max mx-auto">
+<div class="col-span-1">
+<a class="font-headline-md text-headline-md text-primary mb-4 block" href="#">Моя Кроха</a>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Премиальные товары для малышей. Забота, стиль и качество в каждой детали.</p>
+</div>
+<div class="col-span-1">
+<h4 class="font-headline-md text-headline-md text-on-surface mb-4">Навигация</h4>
+<ul class="space-y-3 font-body-sm text-body-sm">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Каталог</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Бренды</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Акции</a></li>
+</ul>
+</div>
+<div class="col-span-1">
+<h4 class="font-headline-md text-headline-md text-on-surface mb-4">Клиентам</h4>
+<ul class="space-y-3 font-body-sm text-body-sm">
+<li><a class="text-on-surface-variant hover:text-primary hover:translate-x-1 transition-transform duration-200 block" href="#">Доставка</a></li>
+<li><a class="text-on-surface-variant hover:text-primary hover:translate-x-1 transition-transform duration-200 block" href="#">Гарантия</a></li>
+<li><a class="text-on-surface-variant hover:text-primary hover:translate-x-1 transition-transform duration-200 block" href="#">Оплата</a></li>
+</ul>
+</div>
+<div class="col-span-1">
+<h4 class="font-headline-md text-headline-md text-on-surface mb-4">Информация</h4>
+<ul class="space-y-3 font-body-sm text-body-sm">
+<li><a class="text-on-surface-variant hover:text-primary hover:translate-x-1 transition-transform duration-200 block" href="#">Контакты</a></li>
+<li><a class="text-on-surface-variant hover:text-primary hover:translate-x-1 transition-transform duration-200 block" href="#">О бренде</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-outline-variant/30 py-6 px-margin-desktop max-w-container-max mx-auto text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-body-sm text-body-sm text-on-surface-variant">© 2024 Моя Кроха. Премиальные товары для малышей.</p>
+<div class="flex gap-4">
+<a class="text-on-surface-variant hover:text-primary opacity-80 hover:opacity-100 transition-opacity" href="#">
+<span class="material-symbols-outlined">share</span>
+</a>
+</div>
+</div>
+</footer>
+</body></html>
